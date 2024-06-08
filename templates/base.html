@@ -1,3 +1,5 @@
+
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,15 +22,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="{% static 'lib/animate/animate.min.css' %} " rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
 
-    <link rel="icon" href="./img/lope-logo1.jpeg">
+    <link rel="icon" href="{% static './img/lope-logo1.jpeg' %}">
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 </head>
 
 <body class="bg-dark">
@@ -82,7 +84,7 @@
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
             <a href="" class="navbar-brand p-0">
-                <h1 class="text-primary"><img src="img/lope-logo1.jpeg" alt="Logo"></i>LopeRadar</h1>
+                <h1 class="text-primary"><img src="{% static './img/lope-logo1.jpeg' %}" alt="Logo"></i>LopeRadar</h1>
                 
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -90,21 +92,29 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
-                    <a href="about.html" class="nav-item nav-link">About Us</a>
-                    <a href="faq.html" class="nav-item nav-link">FAQ</a>
-                    <a href="plans.html" class="nav-item nav-link">Plans</a>
+                    <a href="{% url "home" %}" class="nav-item nav-link active">Home</a>
+                    <a href="{% url "about" %}" class="nav-item nav-link">About Us</a>
+                    <a href="{% url "plans" %}" class="nav-item nav-link">Plans</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">FAQs</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="{% url "contact_form" %}" class="nav-item nav-link">Support</a>
+                        </div>
+                    </div>
+
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Account</a>
                         <div class="dropdown-menu m-0">
-                            <a href="feature.html" class="dropdown-item">Signout</a>
-                            <a href="feature.html" class="dropdown-item">Dashboard</a>
-                            <a href="feature.html" class="dropdown-item">Signin</a>
-                            <a href="product.html" class="dropdown-item">Register</a>
+                            
+                            <a href="{% url "dashboard" %}" class="dropdown-item">Dashboard</a>
+                            <a href="{% url "logout" %}" class="dropdown-item">Signout</a>
+
+                            <a href="{% url "login" %}" class="dropdown-item">Signin</a>
+                            <a href="{% url "register" %}" class="dropdown-item">Register</a>
 
                         </div>
                     </div>
-                    <a href="contact.html" class="nav-item nav-link">Support</a>
+                    
                 </div>
                 <div class="d-none d-xl-flex me-3">
                     <div class="d-flex flex-column pe-3 border-end border-primary">
@@ -119,7 +129,9 @@
 
 
 
+{% block content %}
 
+{% endblock content %}
 
 
 
@@ -223,15 +235,15 @@
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %} "></script>
+    <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
 
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 
 </html>

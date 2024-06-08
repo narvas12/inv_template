@@ -156,8 +156,8 @@ SCHEDULER_TIMEZONE = 'UTC'  # Set the scheduler timezone (optional)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'defiearrn@gmail.com' 
-EMAIL_HOST_PASSWORD = 'udheoeeitrmzedpp'
+EMAIL_HOST_USER = 'devcaliban@gmail.com'
+EMAIL_HOST_PASSWORD = 'tpatxaoryaiuzzrp'
 EMAIL_USE_TLS = True
 
-DEFAULT_FROM_EMAIL = 'support@defiearn.org'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

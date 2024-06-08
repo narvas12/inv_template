@@ -18,6 +18,7 @@ def create_user_wallet_and_earnings(sender, instance, created, **kwargs):
         Earnings.objects.create(user_profile=instance, earnings=initial_balance)
         logger.info(f"Earnings created for user: {instance.user.username} with initial balance: {initial_balance}")
 
+
 @receiver(pre_delete, sender=Withdrawal)
 def update_wallet_balance_on_withdrawal(sender, instance, **kwargs):
     wallet = instance.user_profile.wallet

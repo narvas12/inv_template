@@ -9,7 +9,7 @@
     <meta content="" name="description" />
 
     <!-- Favicon -->
-    <link href="https://tinypic.host/images/2024/04/14/defi_logo.png" rel="icon" />
+    <link href="{% static './img/lope-logo1.jpeg' %}" rel="icon" />
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,12 +29,13 @@
 
     <!-- Template Stylesheet -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/dashboard.css' %}" rel="stylesheet" />
   </head>
 
   <body>
   <div class="telegram-chat-widget">
     <div class="widget-header">
-      <img src="telegram-icon.png" alt="Telegram Logo">
+      <img src="data:image/jpeg;base64,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" alt="Telegram Logo">
       <span>Chat with Us</span>
       <button class="btn-close" type="button" aria-label="Close"></button>
     </div>
@@ -42,67 +43,18 @@
       <p>Welcome to our Telegram chat! We're currently offline, but leave a message and we'll get back to you soon.</p>
     </div>
     <div class="widget-footer">
-      <a href="https://telegram.me/your_telegram_username" target="_blank" class="btn btn-primary">Join Chat</a>
+      <a href="https://telegram.me/" target="_blank" class="btn btn-primary">Join Chat</a>
     </div>
   </div>
-  <style>
-    .telegram-chat-widget {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    transition: all 0.3s ease-in-out;
-    width: 300px;
-    z-index: 999;
-    }
 
-    .telegram-chat-widget.collapsed {
-    width: 50px;
-    border-radius: 25px;
-    }
-
-    .widget-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 15px;
-    cursor: pointer;
-    }
-
-    .widget-header img {
-    width: 25px;
-    height: 25px;
-    }
-
-    .widget-body {
-    padding: 15px;
-    }
-
-    .widget-footer {
-    padding: 10px 15px;
-    text-align: center;
-    }
-
-    .btn-close {
-    color: #ccc;
-    opacity: 0.5;
-    }
-
-    .btn-close:hover {
-    opacity: 1;
-    }
-  </style>
     <div id="wrapper">
       <aside id="sidebar-wrapper">
         <div class="sidebar-brand mb-5">
-          <img class="logo" src="https://tinypic.host/images/2024/04/14/defi_logo.png" alt="" />
+          <img class="logo" src="{% static './img/lope-logo1.jpeg' %}" alt="" />
           <div class="user mt-3">
             <h4>
                 {% if username %}
-                    <p>Welcome, <span><i class="bi bi-emoji-smile-fill text-success"></i></span> {{ username }}!</p>
+                    <p class="text-light">Welcome, <span><i class="bi bi-emoji-smile-fill text-success"></i></span> {{ username }}!</p>
                 {% else %}
                     <p>Welcome, <span><i class="bi bi-emoji-smile-fill text-warning"></i></span> Guest!</p>
                 {% endif %}
@@ -146,7 +98,7 @@
          
           <br />
           <li>
-            <a href="{% url 'auth_plans' %}"><i class="bi bi-box-arrow-in-right"></i>Menbership</a>
+            <a href="{% url 'auth_plans' %}"><i class="bi bi-people-fill"></i></i>Menbership</a>
           </li>
           <li>
             <a href="{% url 'logout' %}"><i class="bi bi-box-arrow-in-right"></i>Logout</a>
@@ -205,281 +157,6 @@
       {% endblock %}
     </div>
 
-    <style>
-        body {
-            padding-bottom: 30px;
-            position: relative;
-            min-height: 100%;
-        }
-
-        a {
-            transition: background 0.2s, color 0.2s;
-        }
-
-        i {
-            margin-right: 1.4rem;
-        }
-
-        a:hover,
-        a:focus {
-            text-decoration: none;
-        }
-
-        .card {
-            padding: 3rem;
-            background-color: #242323;
-            border-radius: 1rem;
-            margin: 1rem;
-            margin-left: 3rem;
-            max-width: 400px;
-        }
-
-        #wrapper {
-            padding-left: 0;
-            transition: all 0.5s ease;
-            position: relative;
-        }
-
-        #sidebar-wrapper {
-            z-index: 1000;
-            position: fixed;
-            left: 250px;
-            width: 0;
-            height: 100%;
-            margin-left: -250px;
-            overflow-y: auto;
-            overflow-x: hidden;
-            background: #222;
-            transition: all 0.5s ease;
-        }
-
-        #wrapper.toggled #sidebar-wrapper {
-            width: 250px;
-        }
-
-        .sidebar-brand {
-            position: absolute;
-            top: 0;
-            width: 250px;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        .logo {
-            width: 60px;
-        }
-
-        .sidebar-brand h2 {
-            margin: 0;
-            font-weight: 600;
-            font-size: 24px;
-            color: #fff;
-        }
-
-        .sidebar-nav {
-            position: absolute;
-            top: 105px;
-            width: 250px;
-            margin: 0;
-            margin-top: 5rem;
-            padding: 0;
-            list-style: none;
-        }
-
-        .sidebar-nav>li {
-            text-indent: 10px;
-            line-height: 42px;
-            margin: 1rem auto;
-        }
-
-        .sidebar-nav>li a {
-            display: block;
-            text-decoration: none;
-            color: #757575;
-            font-weight: 600;
-            font-size: 18px;
-        }
-
-        .sidebar-nav>li>a:hover,
-        .sidebar-nav>li.active>a {
-            text-decoration: none;
-            color: #fff;
-            background: #ff7f16;
-        }
-
-        .sidebar-nav>li>a i.fa {
-            font-size: 24px;
-            width: 60px;
-        }
-
-        #navbar-wrapper {
-            width: 100%;
-            position: absolute;
-            z-index: 2;
-        }
-
-        #wrapper.toggled #navbar-wrapper {
-            position: absolute;
-            margin-right: -250px;
-        }
-
-        #navbar-wrapper .navbar {
-            border-width: 0 0 0 0;
-            background-color: #eee;
-            font-size: 24px;
-            margin-bottom: 0;
-            border-radius: 0;
-        }
-
-        #navbar-wrapper .navbar a {
-            color: #757575;
-        }
-
-        #navbar-wrapper .navbar a:hover {
-            color: #F8BE12;
-        }
-
-        #content-wrapper {
-            width: 100%;
-            position: absolute;
-            padding: 15px;
-            top: 100px;
-        }
-
-        #wrapper.toggled #content-wrapper {
-            position: absolute;
-            margin-right: -250px;
-        }
-
-        @media (min-width: 992px) {
-            #wrapper {
-                padding-left: 250px;
-            }
-
-            #wrapper.toggled {
-                padding-left: 60px;
-            }
-
-            #sidebar-wrapper {
-                width: 250px;
-            }
-
-            #wrapper.toggled #sidebar-wrapper {
-                width: 60px;
-            }
-
-            #wrapper.toggled #navbar-wrapper {
-                position: absolute;
-                margin-right: -190px;
-            }
-
-            #wrapper.toggled #content-wrapper {
-                position: absolute;
-                margin-right: -190px;
-            }
-
-            #navbar-wrapper {
-                position: relative;
-            }
-
-            #wrapper.toggled {
-                padding-left: 60px;
-            }
-
-            #content-wrapper {
-                position: relative;
-                top: 0;
-            }
-
-            #wrapper.toggled #navbar-wrapper,
-            #wrapper.toggled #content-wrapper {
-                position: relative;
-                margin-right: 60px;
-            }
-        }
-
-        @media (min-width: 768px) and (max-width: 991px) {
-            #wrapper {
-                padding-left: 60px;
-            }
-
-            #sidebar-wrapper {
-                width: 60px;
-            }
-
-            #wrapper.toggled #navbar-wrapper {
-                position: absolute;
-                margin-right: -250px;
-            }
-
-            #wrapper.toggled #content-wrapper {
-                position: absolute;
-                margin-right: -250px;
-            }
-
-            #navbar-wrapper {
-                position: relative;
-            }
-
-            #wrapper.toggled {
-                padding-left: 250px;
-            }
-
-            #content-wrapper {
-                position: relative;
-                top: 0;
-            }
-
-            #wrapper.toggled #navbar-wrapper,
-            #wrapper.toggled #content-wrapper {
-                position: relative;
-                margin-right: 250px;
-            }
-        }
-
-        @media (max-width: 767px) {
-            #wrapper {
-                padding-left: 0;
-            }
-
-            #sidebar-wrapper {
-                width: 0;
-            }
-
-            #wrapper.toggled #sidebar-wrapper {
-                width: 250px;
-            }
-
-            #wrapper.toggled #navbar-wrapper {
-                position: absolute;
-                margin-right: -250px;
-            }
-
-            #wrapper.toggled #content-wrapper {
-                position: absolute;
-                margin-right: -250px;
-            }
-
-            #navbar-wrapper {
-                position: relative;
-            }
-
-            #wrapper.toggled {
-                padding-left: 250px;
-            }
-
-            #content-wrapper {
-                position: relative;
-                top: 0;
-            }
-
-            #wrapper.toggled #navbar-wrapper,
-            #wrapper.toggled #content-wrapper {
-                position: relative;
-                margin-right: 250px;
-            }
-        }
-    </style>
     <script>
         const $button = document.querySelector('#sidebar-toggle');
         const $wrapper = document.querySelector('#wrapper');

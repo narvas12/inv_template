@@ -5,42 +5,42 @@
   <section style="text-align: center;" id="content-wrapper text-center p-5">
     <a class="btn btn-success" href="{% url 'deposit' %}">Deposit</a>
     <div class="row">
-      <div class="col-lg-3 col-md-6 col-sm-12 mb-3 card">
+      <div class="col-lg-3 col-md-6 col-sm-12 mb-3 card bg-light">
         <div class="content-item">
-          <h4>Deposits</h4>
+          <h4 class="text-secondary">Deposits</h4>
           <h5 class="text-primary">${{ approved_deposits_total|floatformat:2 }}</h5>
           <p>${{ approved_deposits_total|floatformat:2 }}</p>
           <small><i class="bi bi-info-circle text-primary"></i>Total Deposits over time</small>
         </div>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-12 mb-3 card">
+      <div class="col-lg-3 col-md-6 col-sm-12 mb-3 card bg-light">
         <div class="content-item">
-          <h4>Pending Withdrawal</h4>
+          <h4 class="text-secondary">Pending Withdrawal</h4>
           <h5 class="text-danger">${{ pending_withdrawals_total|floatformat:2 }}</h5>
           <p>${{ pending_withdrawals_total|floatformat:2 }}</p>
           <small><i class="bi bi-info-circle text-danger"></i>Total unapproved withdrawals</small>
         </div>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-12 mb-3 card">
+      <div class="col-lg-3 col-md-6 col-sm-12 mb-3 card bg-light">
         <div class="content-item">
-          <h4>Earned Total</h4>
+          <h4 class="text-secondary">Earned Total</h4>
           <h5 class="text-success">${{ total_earnings|floatformat:2 }}</h5>
           <p>${{ total_earnings|floatformat:2 }}</p>
           <small><i class="bi bi-arrow-repeat text-success text-bold"></i>Total amount earned</small>
         </div>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-12 mb-5 card">
+      <div class="col-lg-3 col-md-6 col-sm-12 mb-5 card bg-light">
         <div class="content-item">
-          <h4>Current balance</h4>
+          <h4 class="text-secondary">Current balance</h4>
           <h5 class="text-warning">${{ wallet_balance|floatformat:2 }}</h5>
           <p>${{ wallet_balance|floatformat:2 }}</p>
           <small> <i class="bi bi-briefcase-fill text-warning"></i> Total withdrawable Balance</small>
         </div>
       </div>
 
-      <div class="col-lg-3 col-md-6 col-sm-12 mb-5 card">
+      <div class="col-lg-3 col-md-6 col-sm-12 mb-5 card bg-light">
         <div class="content-item">
-          <h4>Referral Earnings</h4>
+          <h4 class="text-secondary">Referral Earnings</h4>
           <h5 class="text-warning">${{ referal_bonus|floatformat:2 }}</h5>
           <p>${{ wallet_balance|floatformat:2 }}</p>
           <small><a disabled style="background-color:cyan; color: darkred; border-radius: 5px; padding: 7px;" href="{% url 'referal' username=request.user.username %}">https://okxguard.com/{{user.username}}</a>  <br><br> <span class="text-primary" style="font-size: 12px;"><i class="bi bi-info-circle-fill"> </i>copy and share your affiliate link to keep earning 20% bonuse on successful referals</span></small>

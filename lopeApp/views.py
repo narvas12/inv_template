@@ -35,11 +35,17 @@ def base(request):
     }
     return render(request, 'auth_base.html', context)
 
+
 def about(request):
     return render(request, 'about.html')
 
+
 def plans(request):
     return render(request, 'plans.html')
+
+@login_required
+def auth_plans(request):
+    return render(request, 'plans/auth_plans.html')
 
 
 
@@ -47,7 +53,7 @@ def contact_form(request):
     if request.method == 'POST':
         name = request.POST.get('name')
         email = request.POST.get('email')
-        subject = request.POST.get('subject')
+        subject = request.POST.get('phone')
         message = request.POST.get('message')
 
         if not name or not email or not subject or not message:
@@ -69,11 +75,6 @@ def contact_form(request):
     else:
         return render(request, 'contact.html') 
     
-
-
-def auth_plans(request):
-    return render(request, 'auth_plans.html')
-
 
 
 
@@ -101,10 +102,10 @@ def register_view(request):
             for field, errors in form.errors.items():
                 for error in errors:
                     messages.error(request, f"Error in {field}: {error}")
-            return render(request, 'user_forms/register.html', {'form': form})
+            return render(request, 'authentication/register.html', {'form': form})
     else:
         form = UserRegistrationForm()
-    return render(request, 'user_forms/register.html', {'form': form})
+    return render(request, 'authentication/register.html', {'form': form})
 
 
 
@@ -155,17 +156,17 @@ def login_view(request):
                     messages.error(request, f"Error in {field}: {error}")
     else:
         form = UserLoginForm()
-    return render(request, 'user_forms/login.html', {'form': form})
+    return render(request, 'authentication/login.html', {'form': form})
 
 
 
 
 
 def login_success_view(request):
-    return render(request, 'user_forms/login_success.html')
+    return render(request, 'authentication/login_success.html')
 
 def registration_success_view(request):
-    return render(request, 'user_forms/registration_success.html')
+    return render(request, 'authentication/registration_success.html')
 
 
 def logout_view(request):
@@ -384,7 +385,7 @@ def dashboard(request):
         'referal_bonus':referal_bonus
     }
 
-    return render(request, 'dashboard.html', context)
+    return render(request, 'accounts/dashboard.html', context)
 
 
 @login_required
