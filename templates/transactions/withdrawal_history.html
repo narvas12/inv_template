@@ -1,0 +1,31 @@
+<!-- withdrawal_history.html -->
+{% extends 'auth_base.html' %}
+{% block content %}
+  <div class="container">
+    <h1 class="mt-4">Withdrawal History</h1>
+    <div class="table-responsive mt-4">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for withdrawal in withdrawals %}
+            <tr>
+              <td>{{ withdrawal.timestamp }}</td>
+              <td>${{ withdrawal.amount }}</td>
+              <td>{% if withdrawal.approved %}<span class="badge bg-success">Approved</span>{% else %}<span class="badge bg-warning">Pending</span>{% endif %}</td>
+            </tr>
+          {% empty %}
+            <tr>
+              <td colspan="3" class="text-center">No withdrawal history available.</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

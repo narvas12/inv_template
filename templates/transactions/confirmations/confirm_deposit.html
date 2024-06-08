@@ -1,0 +1,80 @@
+{% extends 'auth_base.html' %}
+{% block content %}
+  <div class="container">
+    <h1 class="mt-4 text-primary">Complete Deposit</h1>
+    <p>You must comfirm your deposit by posting the wallet credited and the transaction hash through the form below</p>
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Bitcoin (BTC)</h5>
+            <div class="input-group">
+              <input type="text" class="form-control" value="1FpFkrkXmUQn4dR4zRJKSyze3y6bm5hFo4" id="btcWallet" readonly>
+              <button class="btn btn-primary" onclick="copyToClipboard('btcWallet')">Copy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">USDT (TRC20)</h5>
+            <div class="input-group">
+              <input type="text" class="form-control" value="TGfei5mxbJeZk1GpHQUbPXgMPHmk7efBA3" id="usdtwallet" readonly>
+              <button class="btn btn-primary" onclick="copyToClipboard('usdtwallet')">Copy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">BNB (BEP20)</h5>
+            <div class="input-group">
+              <input type="text" class="form-control" value="0xe4c8684625a74ac9af807c1a4d47f2fca4a45ce7" id="bnbwallet" readonly>
+              <button class="btn btn-primary" onclick="copyToClipboard('bnbwallet')">Copy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Ethereum (ETH)</h5>
+            <div class="input-group">
+              <input type="text" class="form-control" value="0xe4c8684625a74ac9af807c1a4d47f2fca4a45ce7" id="ethWallet" readonly>
+              <button class="btn btn-primary" onclick="copyToClipboard('ethWallet')">Copy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="mt-4">Confirm Deposit</h2>
+    <form action="{% url 'confirm_deposit' %}" method="post">
+      {% csrf_token %}
+      <div class="form-group mb-3 ">
+        <label for="walletCredited">Wallet Credited</label>
+        <input type="text" class="form-control text-dark" id="walletCredited" name="wallet_credited" placeholder="TGfei5mxbJeZk1GpHQUbPXgMPHmk7efBA3">
+      </div>
+      <div class="form-group mb-3">
+        <label for="transactionHash">Transaction Hash</label>
+        <input type="text" class="form-control text-dark" id="transactionHash" name="transaction_hash" placeholder="">
+      </div>
+      <button type="submit" class="btn btn-primary">Confirm Deposit</button>
+    </form>
+  </div>
+
+  <script>
+    function copyToClipboard(elementId) {
+      var inputElement = document.getElementById(elementId);
+      inputElement.select();
+      inputElement.setSelectionRange(0, 99999);
+      document.execCommand('copy');
+      alert('Copied to clipboard: ' + inputElement.value);
+    }
+  </script>
+{% endblock %}

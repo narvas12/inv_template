@@ -1,0 +1,41 @@
+{% extends 'auth_base.html' %}
+{% block content %}
+  <h1>Manage Withdrawals</h1>
+  <form method="post" class="container-fluid">
+    {% csrf_token %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Amount</th>
+          <th>Wallet</th>
+          <th>Network</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for withdrawal in withdrawals %}
+          <tr>
+            <td>{{ withdrawal.id }}</td>
+            <td>${{ withdrawal.amount }}</td>
+            <td>{{ withdrawal.wallet }}</td>
+            <td>{{ withdrawal.network }}</td>
+            <td>
+              {% if withdrawal.approved %}
+                <span class="badge bg-success">Approved</span>
+              {% else %}
+                <span class="badge bg-danger">Unapproved</span>
+              {% endif %}
+            </td>
+            <td>
+              <input type="checkbox" name="withdrawal_ids" value="{{ withdrawal.id }}"
+                     {% if withdrawal.approved %} disabled {% endif %}>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+{% endblock %}

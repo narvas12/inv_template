@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Approve Deposits</h1>
+    
+    {% if message %}
+    <div class="alert alert-success" role="alert">
+        {{ message }}
+    </div>
+    {% endif %}
+    
+    <form method="post">
+        {% csrf_token %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>User</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Select</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for deposit in deposits %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ deposit.user_profile.user.username }}</td>
+                    <td>${{ deposit.amount }}</td>
+                    <td>{{ deposit.timestamp }}</td>
+                    <td>{% if deposit.approved %}<span class="badge bg-success">Approved</span>{% else %}<span class="badge bg-warning text-dark">Pending</span>{% endif %}</td>
+                    <td><input class="form-check-input" type="checkbox" name="selected_deposits" value="{{ deposit.id }}"></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <button type="submit" class="btn btn-primary">Approve Selected Deposits</button>
+    </form>
+    
+    {% if not deposits %}
+    <p>No pending deposits to approve.</p>
+    {% endif %}
+</div>
+{% endblock %}

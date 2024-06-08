@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>LopeRadar - Build Your way into financial freedom</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <link rel="icon" href="./img/lope-logo1.jpeg">
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body class="bg-dark">
+
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {
+    "symbols": [ 
+      {
+        "proName": "FOREXCOM:SPXUSD",
+        "title": "S&P 500 Index"
+      },
+      {
+        "proName": "FOREXCOM:NSXUSD",
+        "title": "US 100 Cash CFD"
+      },
+      {
+        "proName": "FX_IDC:EURUSD",
+        "title": "EUR to USD"
+      },
+      {
+        "proName": "BITSTAMP:BTCUSD",
+        "title": "Bitcoin"
+      },
+      {
+        "proName": "BITSTAMP:ETHUSD",
+        "title": "Ethereum"
+      }
+    ],
+    "showSymbolLogo": true,
+    "isTransparent": false,
+    "displayMode": "adaptive",
+    "colorTheme": "dark",
+    "locale": "en"
+  }
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+            <a href="" class="navbar-brand p-0">
+                <h1 class="text-primary"><img src="img/lope-logo1.jpeg" alt="Logo"></i>LopeRadar</h1>
+                
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About Us</a>
+                    <a href="faq.html" class="nav-item nav-link">FAQ</a>
+                    <a href="plans.html" class="nav-item nav-link">Plans</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Account</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="feature.html" class="dropdown-item">Signout</a>
+                            <a href="feature.html" class="dropdown-item">Dashboard</a>
+                            <a href="feature.html" class="dropdown-item">Signin</a>
+                            <a href="product.html" class="dropdown-item">Register</a>
+
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Support</a>
+                </div>
+                <div class="d-none d-xl-flex me-3">
+                    <div class="d-flex flex-column pe-3 border-end border-primary">
+                        <span class="text-body">Get In Touch</span>
+                        <a href="tel:+4733378901"><span class="text-primary">Call: +1(413) 353-2732</span></a>
+                    </div>
+                </div>
+                <a href="" class="btn btn-primary rounded-pill d-inline-flex flex-shrink-0 py-2 px-4">Join Us</a>
+            </div>
+        </nav>
+
+        <!-- Carousel Start -->
+        <div class="carousel-header">
+            <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active"></li>
+                    <li data-bs-target="#carouselId" data-bs-slide-to="1"></li>
+                    <li data-bs-target="#carouselId" data-bs-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <img src="img/carousel-1.png" class="img-fluid w-100" alt="Image">
+                        <div class="carousel-caption-1">
+                            <div class="carousel-caption-1-content" style="max-width: 900px;">
+                                <h4 class="text-white text-uppercase fw-bold mb-4 fadeInLeft animated"
+                                    data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;"
+                                    style="letter-spacing: 3px;">Your Money works for you</h4>
+                                <h1 class="display-2 text-capitalize text-white mb-4 fadeInLeft animated"
+                                    data-animation="fadeInLeft" data-delay="1.3s" style="animation-delay: 1.3s;">Build
+                                    true Wealth with LopeRadar</h1>
+                                <p class="mb-5 fs-5 text-white fadeInLeft animated" data-animation="fadeInLeft"
+                                    data-delay="1.5s" style="animation-delay: 1.5s;">our commitment to excellence drives
+                                    everything we do. As a leading digital trading platform, we empower our users to
+                                    navigate the dynamic world of financial instruments with confidence. Whether you’re
+                                    a seasoned investor or just starting out, our comprehensive suite of services
+                                    ensures that your financial goals are within reach
+                                </p>
+                                <div class="carousel-caption-1-content-btn fadeInLeft animated"
+                                    data-animation="fadeInLeft" data-delay="1.7s" style="animation-delay: 1.7s;">
+                                    <a class="btn btn-primary rounded-pill flex-shrink-0 py-3 px-5 me-2" href="#">Join
+                                        Us</a>
+                                    <a class="btn btn-secondary rounded-pill flex-shrink-0 py-3 px-5 ms-2"
+                                        href="#">Start Earning</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/carousel-2.jpg" class="img-fluid w-100" alt="Image">
+                        <div class="carousel-caption-2">
+                            <div class="carousel-caption-2-content" style="max-width: 900px;">
+                                <h4 class="text-white text-uppercase fw-bold mb-4 fadeInRight animated"
+                                    data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;"
+                                    style="letter-spacing: 3px;">Stay winnning</h4>
+                                <h1 class="display-2 text-capitalize text-white mb-4 fadeInRight animated"
+                                    data-animation="fadeInRight" data-delay="1.3s" style="animation-delay: 1.3s;">We
+                                    trade diverse assets</h1>
+                                <p class="mb-5 fs-5 text-white fadeInRight animated" data-animation="fadeInRight"
+                                    data-delay="1.5s" style="animation-delay: 1.5s;">From Bitcoin to traditional stocks,
+                                    our platform caters to a wide range of investment preferences. That's how e stay
+                                    winnning
+                                </p>
+                                <div class="carousel-caption-2-content-btn fadeInRight animated"
+                                    data-animation="fadeInRight" data-delay="1.7s" style="animation-delay: 1.7s;">
+                                    <a class="btn btn-primary rounded-pill flex-shrink-0 py-3 px-5 me-2" href="#">Join
+                                        Us</a>
+                                    <a class="btn btn-secondary rounded-pill flex-shrink-0 py-3 px-5 ms-2"
+                                        href="#">Start Earning</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon btn btn-primary fadeInLeft animated" aria-hidden="true"
+                        data-animation="fadeInLeft" data-delay="1.1s" style="animation-delay: 1.3s;"> <i
+                            class="fa fa-angle-left fa-3x"></i></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+                    <span class="carousel-control-next-icon btn btn-primary fadeInRight animated" aria-hidden="true"
+                        data-animation="fadeInLeft" data-delay="1.1s" style="animation-delay: 1.3s;"><i
+                            class="fa fa-angle-right fa-3x"></i></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <!-- Carousel End -->
+    </div>
+    <!-- Navbar & Hero End -->
+
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container" style="width: 100%; max-width: 100%; height: 550px;">
+        
+        <div class="tradingview-widget-container__widget" style="width: 100%; height: 100%;"></div>
+        
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
+        {
+            "feedMode": "all_symbols",
+            "isTransparent": true,
+            "displayMode": "compact",
+            "width": "100%",
+            "height": 550,
+            "colorTheme": "dark",
+            "locale": "en",
+            "symbols": [
+                {
+                    "proName": "FOREXCOM:SPXUSD",
+                    "title": "S&P 500"
+                },
+                {
+                    "proName": "FOREXCOM:NSXUSD",
+                    "title": "Nasdaq 100"
+                }
+            ]
+        }
+        </script>
+    </div>
+    <!-- TradingView Widget END -->
+
+
+    <!-- feature Start -->
+    <div class="container-fluid feature bg-light py-5">
+        <div class="container py-5">
+            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                <h4 class="text-uppercase text-primary">Our Feature</h4>
+                <h1 class="display-3 text-capitalize mb-3">A Trusted Name In Asset Management Industry</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="feature-item p-4">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-lightbulb text-white fa-3x"></i>
+                        </div>
+                        <a href="#" class="h4 mb-3">Innovation</a>
+                        <p class="mb-3">We stay ahead of the curve by embracing cutting-edge technologies and trends.
+                            Our platform provides seamless access to a wide range of assets, including cryptocurrencies,
+                            stocks, ETFs, options, mutual funds, and bonds</p>
+                        <a href="#" class="btn text-secondary">Read More <i class="fa fa-angle-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="feature-item p-4">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-eye text-white fa-3x"></i>
+                        </div>
+                        <a href="#" class="h4 mb-3">Transparency</a>
+                        <p class="mb-3">Trust is the cornerstone of our relationship with our users. We provide
+                            transparent pricing, real-time data, and clear communication to foster a sense of security
+                            and reliability.</p>
+                        <a href="#" class="btn text-secondary">Read More <i class="fa fa-angle-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="feature-item p-4">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-user-friends text-white fa-3x"></i>
+                        </div>
+                        <a href="#" class="h4 mb-3">Customer-Centric Approach</a>
+                        <p class="mb-3">Our success is measured by the satisfaction of our users. We prioritize their
+                            needs, offering intuitive interfaces, educational resources, and responsive customer
+                            support.</p>
+                        <a href="#" class="btn text-secondary">Read More <i class="fa fa-angle-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
+                    <div class="feature-item p-4">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-shield-alt text-white fa-3x"></i>
+                        </div>
+                        <a href="#" class="h4 mb-3">Security</a>
+                        <p class="mb-3">We take data security seriously. Rigorous protocols protect your personal
+                            information and assets, allowing you to trade with peace of mind.</p>
+                        <a href="#" class="btn text-secondary">Read More <i class="fa fa-angle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- feature End -->
+
+
+    <!-- About Start -->
+    <div class="container-fluid about overflow-hidden py-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.2s">
+                    <div class="about-img rounded h-100">
+                        <img src="img/Power-traders-talking.webp" class="img-fluid rounded h-100 w-100"
+                            style="object-fit: cover;" alt="">
+                        <div class="about-exp"><span>7 Years Experiance</span></div>
+                    </div>
+                </div>
+                <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.2s">
+                    <div class="about-item">
+                        <h4 class="text-primary text-uppercase">About Us</h4>
+                        <h1 class="display-3 mb-3 text-light">The Most Valued Digital Asset management Platform </h1>
+                        <p class="mb-4">Our platform offers a cutting-edge digital trading environment that empowers
+                            users to trade a diverse range of financial instruments, with a primary focus on
+                            cryptocurrency. In addition to crypto trading, we provide services related to stocks,
+                            exchange-traded funds (ETFs), options, mutual funds, and bonds. Our publicly-traded vehicle
+                            allows investors to earn returns tied to Bitcoin.
+                        </p>
+                        <div class="bg-light rounded p-4 mb-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="d-flex">
+                                        <div class="pe-4">
+                                            <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center"
+                                                style="width: 80px; height: 80px;">
+                                                <i class="fas fa-coins text-white fa-2x"></i>
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <a href="#" class="h4 d-inline-block mb-3">Diverse Asset Portfolio</a>
+                                            <p class="mb-0">From Bitcoin to traditional stocks, our platform caters to a
+                                                wide range of investment preferences.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-light rounded p-4 mb-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="d-flex">
+                                        <div class="pe-4">
+                                            <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center"
+                                                style="width: 80px; height: 80px;">
+                                                <i class="fas fa-headset text-white fa-2x"></i>
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <a href="#" class="h4 d-inline-block mb-3">Responsive Support</a>
+                                            <p class="mb-0">Our dedicated support team is available to assist you every
+                                                step of the way. Join us at LopeRadar and experience the future of
+                                                digital trading!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="#" class="btn btn-secondary rounded-pill py-3 px-5">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!-- Fact Counter -->
+    <div class="container-fluid counter py-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="counter-item">
+                        <div class="counter-item-icon mx-auto">
+                            <i class="fas fa-thumbs-up fa-3x text-white"></i>
+                        </div>
+                        <h4 class="text-white my-4">Active investors</h4>
+                        <div class="counter-counting">
+                            <span class="text-white fs-2 fw-bold" data-toggle="counter-up">20456</span>
+                            <span class="h1 fw-bold text-white">+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="counter-item">
+                        <div class="counter-item-icon mx-auto">
+                            <i class="fas fa-users fa-3x text-white"></i>
+                        </div>
+                        <h4 class="text-white my-4">Payouts</h4>
+                        <div class="counter-counting">
+                            <span class="text-white fs-2 fw-bold" data-toggle="counter-up">800</span>
+                            <span class="h1 fw-bold text-white">m+</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
+                    <div class="counter-item">
+                        <div class="counter-item-icon mx-auto">
+                            <i class="fas fa-heart fa-3x text-white"></i>
+                        </div>
+                        <h4 class="text-white my-4">Years Experiance</h4>
+                        <div class="counter-counting">
+                            <span class="text-white fs-2 fw-bold" data-toggle="counter-up">7</span>
+                            <span class="h1 fw-bold text-white">+</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="counter-item">
+                        <div class="counter-item-icon mx-auto">
+                            <i class="fas fa-users fa-3x text-white"></i>
+                        </div>
+                        <h4 class="text-white my-4">Partners</h4>
+                        <div class="counter-counting">
+                            <span class="text-white fs-2 fw-bold" data-toggle="counter-up">1000</span>
+                            <span class="h1 fw-bold text-white">+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fact Counter -->
+
+    <!-- Service Start -->
+    <div class="container-fluid service bg-light overflow-hidden py-5">
+        <div class="container py-5">
+            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                <h4 class="text-uppercase text-primary">Assets We Chose</h4>
+                <h1 class="display-3 text-capitalize mb-3">These Assets Were Evaluated and Chosen by Experienced
+                    Professionals</h1>
+            </div>
+            <div class="row gx-0 gy-4 align-items-center">
+                <div class="col-lg-6 col-xl-4 wow fadeInLeft" data-wow-delay="0.2s">
+                    <div class="service-item rounded p-4 mb-4">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="d-flex">
+                                    <div class="pe-4">
+                                        <div class="service-btn"><i
+                                                class="fas fa-hand-holding-usd text-white fa-2x"></i></div>
+                                    </div>
+                                    <div class="service-content">
+                                        <a href="#" class="h4 d-inline-block mb-3">ETFs</a>
+                                        <p class="mb-0">Exchange-traded funds offering diversified exposure to various
+                                            sectors.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-item rounded p-4 mb-0">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="d-flex">
+                                    <div class="pe-4">
+                                        <div class="service-btn"><i class="fas fa-chart-bar text-white fa-2x"></i></div>
+                                    </div>
+                                    <div class="service-content">
+                                        <a href="#" class="h4 d-inline-block mb-3">Stocks</a>
+                                        <p class="mb-0">Equities representing ownership in companies, traded on stock
+                                            exchanges.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="bg-transparent">
+                        <img src="img/trader.png" class="img-fluid w-100" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-4 wow fadeInRight" data-wow-delay="0.2s">
+                    <div class="service-item rounded p-4 mb-4">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="d-flex">
+                                    <div class="pe-4">
+                                        <div class="service-btn"><i class="fab fa-bitcoin text-white fa-2x"></i></div>
+                                    </div>
+                                    <div class="service-content">
+                                        <a href="#" class="h4 d-inline-block mb-3">Bitcoin</a>
+                                        <p class="mb-0">Leading cryptocurrency with the largest market cap and global
+                                            recognition.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-item rounded p-4 mb-4">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="d-flex">
+                                    <div class="pe-4">
+                                        <div class="service-btn"><i class="fas fa-chart-line text-white fa-2x"></i>
+                                        </div>
+                                    </div>
+                                    <div class="service-content">
+                                        <a href="#" class="h4 d-inline-block mb-3">Forex</a>
+                                        <p class="mb-0">The foreign exchange market where currencies are traded
+                                            globally.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service End -->
+
+
+    <!-- Products Start -->
+    <div class="container-fluid product py-5">
+        <div class="container py-5">
+            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                <h4 class="text-uppercase text-primary">Find the Right Plan for You</h4>
+                <h1 class="display-3 text-capitalize mb-3 text-light">Compare Plans and Choose Your Path</h1>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="product-item">
+                        <div class="product-content bg-light text-center rounded-bottom p-4">
+
+
+                            <a href="#" class="h4 d-inline-block mb-3">ESSENTIAL PLAN </a>
+                            <p class="fs-4 text-primary mb-3">MIN $199 : MAX $999</p>
+                            <p>8% Profit after 24 hours</p>
+                            <p>Referral commission: 5%</p>
+                            <a href="#" class="btn btn-secondary rounded-pill py-2 px-4">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="product-item">
+                        <div class="product-content bg-light text-center rounded-bottom p-4">
+
+
+                            <a href="#" class="h4 d-inline-block mb-3">BASIC PLAN</a>
+                            <p class="fs-4 text-primary mb-3">MIN $999: MAX $2,999</p>
+                            <p>10% Profit after 24 hours</p>
+                            <p>Referral commission: 5% </p>
+                            <a href="#" class="btn btn-secondary rounded-pill py-2 px-4">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="product-item">
+                        <div class="product-content bg-light text-center rounded-bottom p-4">
+
+
+                            <a href="#" class="h4 d-inline-block mb-3">STANDARD PLAN (PLAN: A)</a>
+                            <p class="fs-4 text-primary mb-3">MIN $2,999 : MAX $5,999</p>
+                            <p>15% Profit after 24 hours</p>
+                            <p>Referral commission: 10%</p>
+                            <a href="#" class="btn btn-secondary rounded-pill py-2 px-4">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="product-item">
+                        <div class="product-content bg-light text-center rounded-bottom p-4">
+
+
+                            <a href="#" class="h4 d-inline-block mb-3">STANDARD (PLAN-B)</a>
+                            <p class="fs-4 text-primary mb-3">MIN $7,000 : $14,000</p>
+                            <p>20% Profit after 20hours</p>
+                            <p>Referral commission: 5% </p>
+                            <a href="#" class="btn btn-secondary rounded-pill py-2 px-4">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                <h4 class="text-uppercase text-primary">VIP Plans</h4>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="product-item">
+                        <div class="product-content bg-light text-center rounded-bottom p-4">
+                            <a href="#" class="h4 d-inline-block mb-3">COMPOUNDING PLAN</a>
+                            <p class="fs-4 text-primary mb-3">MIN $15,000 : MAX $20,000</p>
+                            <p>12% Profit after 12hours</p>
+                            <p>Referral commission: 50%</p>
+                            <a href="#" class="btn btn-secondary rounded-pill py-2 px-4">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="product-item">
+                        <div class="product-content bg-light text-center rounded-bottom p-4">
+                            <a href="#" class="h4 d-inline-block mb-3">GOLD PLAN</a>
+                            <p class="fs-4 text-primary mb-3">MIN $25000 : MAX $40000</p>
+                            <p>30% Profit  after 48hours</p>
+                            <p>Referral commission: 5% </p>
+                            <a href="#" class="btn btn-secondary rounded-pill py-2 px-4">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="product-item">
+                        <div class="product-content bg-light text-center rounded-bottom p-4">
+                            
+                            <a href="#" class="h4 d-inline-block mb-3">SPECIAL PLAN</a>
+                            <p class="fs-4 text-primary mb-3">MIN $50000 - UNLIMITED</p>
+                            <p>40% after 72 hours</p>
+                            <p>Referral commission: 10%</p>
+                            <a href="#" class="btn btn-secondary rounded-pill py-2 px-4">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Products End -->
+
+<hr>
+
+    <!-- Team Start -->
+    <div class="container-fluid team pb-5">
+        <div class="container pb-5">
+            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                <h4 class="text-uppercase text-primary">Our Team</h4>
+                <h1 class="display-3 text-capitalize mb-3 text-light">The team behind our success story</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="team-item p-4">
+                        <div class="team-inner rounded">
+                            <div class="team-img">
+                                <img src="img/team-4.jpg" class="img-fluid rounded-top w-100" alt="Image">
+                                <div class="team-share">
+                                    <a class="btn btn-secondary btn-md-square rounded-pill text-white mx-1" href=""><i
+                                            class="fas fa-share-alt"></i></a>
+                                </div>
+                                <!-- <div class="team-icon rounded-pill py-2 px-2">
+                                    <a class="btn btn-secondary btn-sm-square rounded-pill mx-1" href=""><i
+                                            class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-secondary btn-sm-square rounded-pill me-1" href=""><i
+                                            class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-secondary btn-sm-square rounded-pill me-1" href=""><i
+                                            class="fab fa-linkedin-in"></i></a>
+                                    <a class="btn btn-secondary btn-sm-square rounded-pill me-1" href=""><i
+                                            class="fab fa-instagram"></i></a>
+                                </div> -->
+                            </div>
+                            <div class="bg-light rounded-bottom text-center py-4">
+                                <h4 class="mb-3">George Furr</h4>
+                                <p class="mb-0">Chief Executive Officer (CEO)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="team-item p-4">
+                        <div class="team-inner rounded">
+                            <div class="team-img">
+                                <img src="img/team-2.jpg" class="img-fluid rounded-top w-100" alt="Image">
+                                <div class="team-share">
+                                    <a class="btn btn-secondary btn-md-square rounded-pill text-white mx-1" href=""><i
+                                            class="fas fa-share-alt"></i></a>
+                                </div>
+                                <!-- <div class="team-icon rounded-pill py-2 px-2">
+                                    <a class="btn btn-secondary btn-sm-square rounded-pill mx-1" href=""><i
+                                            class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-secondary btn-sm-square rounded-pill me-1" href=""><i
+                                            class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-secondary btn-sm-square rounded-pill me-1" href=""><i
+                                            class="fab fa-linkedin-in"></i></a>
+                                    <a class="btn btn-secondary btn-sm-square rounded-pill me-1" href=""><i
+                                            class="fab fa-instagram"></i></a>
+                                </div> -->
+                            </div>
+                            <div class="bg-light rounded-bottom text-center py-4">
+                                <h4 class="mb-3">Ray L. Robert</h4>
+                                <p class="mb-0">Chief Operating Officer (COO)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="team-item p-4">
+                        <div class="team-inner rounded">
+                            <div class="team-img">
+                                <img src="img/team-3.jpg" class="img-fluid rounded-top w-100" alt="Image">
+                                <div class="team-share">
+                                    <a class="btn btn-secondary btn-md-square rounded-pill text-white mx-1" href=""><i
+                                            class="fas fa-share-alt"></i></a>
+                                </div>
+                                <!-- <div class="team-icon rounded-pill py-2 px-2">
+                                    <a class="btn btn-secondary btn-sm-square rounded-pill mx-1" href=""><i
+                                            class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-secondary btn-sm-square rounded-pill me-1" href=""><i
+                                            class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-secondary btn-sm-square rounded-pill me-1" href=""><i
+                                            class="fab fa-linkedin-in"></i></a>
+                                    <a class="btn btn-secondary btn-sm-square rounded-pill me-1" href=""><i
+                                            class="fab fa-instagram"></i></a>
+                                </div> -->
+                            </div>
+                            <div class="bg-light rounded-bottom text-center py-4">
+                                <h4 class="mb-3">Ashley Olton</h4>
+                                <p class="mb-0">Chief Financial Officer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
+                    <div class="team-item p-4">
+                        <div class="team-inner rounded">
+                            <div class="team-img">
+                                <img src="img/team-4.png" class="img-fluid rounded-top w-100" alt="Image">
+                                <div class="team-share">
+                                    <a class="btn btn-secondary btn-md-square rounded-pill text-white mx-1" href=""><i
+                                            class="fas fa-share-alt"></i></a>
+                                </div>
+                                <!-- <div class="team-icon rounded-pill py-2 px-2">
+                                    <a class="btn btn-secondary btn-sm-square rounded-pill mx-1" href=""><i
+                                            class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-secondary btn-sm-square rounded-pill me-1" href=""><i
+                                            class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-secondary btn-sm-square rounded-pill me-1" href=""><i
+                                            class="fab fa-linkedin-in"></i></a>
+                                    <a class="btn btn-secondary btn-sm-square rounded-pill me-1" href=""><i
+                                            class="fab fa-instagram"></i></a>
+                                </div> -->
+                            </div>
+                            <div class="bg-light rounded-bottom text-center py-4">
+                                <h4 class="mb-3">Allen McBride</h4>
+                                <p class="mb-0">Sales Representative</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+<br>
+<br>
+<br>
+    <hr>
+    <!-- Testimonial Start -->
+    <div class="container-fluid testimonial pb-5">
+        <div class="container pb-5">
+            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                <h4 class="text-uppercase text-primary">Testimonials</h4>
+                <h1 class="display-3 text-capitalize mb-3 text-light">Our clients reviews.</h1>
+            </div>
+
+            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.3s">
+                <div class="testimonial-item text-center p-4">
+                    <p>The team at Lope Radar has been instrumental in reshaping my investment strategy. Their attention to detail and proactive communication have given me peace of mind. I’m seeing great returns and feel confident in my financial future thanks to their expertise.
+                    </p>
+                    <div class="d-flex justify-content-center mb-4">
+                        <img src="img/testimomial.jpeg" class="img-fluid border border-4 border-primary"
+                            style="width: 100px; height: 100px; border-radius: 50px;" alt="">
+                    </div>
+                    <div class="d-block">
+                        <h4 class="text-light">Oliver Smith</h4>
+                        <!-- <p class="m-0 pb-3">Profession</p> -->
+                        <div class="d-flex justify-content-center text-secondary">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-item text-center p-4">
+                    <p>“I’ve been with Lope Radar for over two years, and their performance has been consistently impressive. They understand the market’s complexities and navigate them with ease, ensuring my investments are always in good hands
+                    </p>
+                    <div class="d-flex justify-content-center mb-4">
+                        <img src="img/testimonial-4.jpeg" class="img-fluid border border-4 border-primary"
+                            style="width: 100px; height: 100px; border-radius: 50px;" alt="">
+                    </div>
+                    <div class="d-block">
+                        <h4 class="text-light">Mica Johnson</h4>
+
+                        <div class="d-flex justify-content-center text-secondary">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-item text-center p-4">
+                    <p>LWhat stands out for me with Lope Radar is their integrity and commitment to clients. They’ve gone above and beyond to tailor an investment plan that fits my unique needs, and I’ve been thoroughly satisfied with the results
+                    </p>
+                    <div class="d-flex justify-content-center mb-4">
+                        <img src="img/testimonial-3.jpeg" class="img-fluid border border-4 border-primary"
+                            style="width: 100px; height: 100px; border-radius: 50px;" alt="">
+                    </div>
+                    <div class="d-block">
+                        <h4 class="text-light">William Brown</h4>
+
+                        <div class="d-flex justify-content-center text-secondary">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-item text-center p-4">
+                    <p>As someone who values both innovation and tradition in asset management, Lope Radar has been the perfect fit. Their blend of tried-and-true methods with modern techniques has made my investment experience both profitable and enjoyable
+                    </p>
+                    <div class="d-flex justify-content-center mb-4">
+                        <img src="img/testimonial-3.jpg" class="img-fluid border border-4 border-primary"
+                            style="width: 100px; height: 100px; border-radius: 50px;" alt="">
+                    </div>
+                    <div class="d-block">
+                        <h4 class="text-light">Sophia Davis</h4>
+
+                        <div class="d-flex justify-content-center text-secondary">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer py-5 wow fadeIn bg-dark" data-wow-delay="0.2s">
+        <hr>
+        <hr>
+        <div class="container py-5">
+            <div class="row g-5 mb-5 align-items-center">
+                <div class="col-lg-7">
+                    <div class="position-relative mx-auto">
+                        <input class="form-control rounded-pill w-100 py-3 ps-4 pe-5" type="text"
+                            placeholder="Email address to Subscribe">
+                        <button type="button"
+                            class="btn btn-secondary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Subscribe</button>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+
+                </div>
+            </div>
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <div class="footer-item">
+                            <h3 class="text-white mb-4"><i
+                                    class="fas fa-hand-holding-water text-primary me-3"></i>LopeRadar</h3>
+                            <p class="mb-3">Trust is the cornerstone of our relationship with our users. We provide
+                                transparent pricing, real-time data, and clear communication to foster a sense of
+                                security and reliability</p>
+                        </div>
+                        <div class="position-relative">
+                            <input class="form-control rounded-pill w-100 py-3 ps-4 pe-5" type="text"
+                                placeholder="Enter your email">
+                            <button type="button"
+                                class="btn btn-secondary rounded-pill position-absolute top-0 end-0 py-2 mt-2 me-2">SignUp</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-white mb-4">Quick links</h4>
+                        <a href="#"><i class="fas fa-angle-right me-2"></i>Home</a>
+                        <a href="#"><i class="fas fa-angle-right me-2"></i>About</a>
+                        <a href="#"><i class="fas fa-angle-right me-2"></i>FAQ</a>
+                        <a href="#"><i class="fas fa-angle-right me-2"></i>Support</a>
+                        <a href="#"><i class="fas fa-angle-right me-2"></i>Contact us</a>
+                        <a href="#"><i class="fas fa-angle-right me-2"></i>Terms & Conditions</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-white mb-4">Business Hours</h4>
+                        <div class="mb-3">
+                            <h6 class="text-muted mb-0">We are open 24/7, ensuring that our support team is always
+                                available to assist you. No matter the time or day, our dedicated professionals are here
+                                to provide prompt and effective help whenever you need it. Your satisfaction is our
+                                priority, and we strive to be accessible and responsive around the clock.</h6>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-white mb-4">Contact Info</h4>
+                        <a href="#"><i class="fa fa-map-marker-alt me-2"></i>26 Halton, Runcorn, Cheshire, England , WA7
+                            6UE.</a>
+                        <a href="mailto:info@example.com"><i class="fas fa-envelope me-2"></i> info@loperadar.com</a>
+                        <a href="tel:+012 345 67890" class="mb-3"><i class="fas fa-print me-2"></i>+1(413) 353-2732</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright py-4">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-md-0">
+                    <span class="text-body"><a href="#" class="border-bottom text-white"><i
+                                class="fas fa-copyright text-light me-2"></i>LopeRadar</a>, All right reserved.</span>
+                </div>
+                <div class="col-md-6 text-center text-md-end text-body">
+                    <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
+                    <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
+                    <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-secondary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

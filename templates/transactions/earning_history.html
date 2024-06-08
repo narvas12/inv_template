@@ -1,0 +1,28 @@
+{% extends 'auth_base.html' %}
+{% block content %}
+  <div class="container">
+    <h1 class="mt-4 text-primary">{{ user_profile.user.username }}'s Earning History</h1>
+    <div class="table-responsive mt-4">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Date Earned</th>
+            <th class="text-right">Earnings ($)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for earning in earnings_history %}
+            <tr>
+              <td>{{ earning.earned_date|date:"D d M Y H:i:s" }}</td>
+              <td class="text-right">${{ earning.earnings }}</td>
+            </tr>
+          {% empty %}
+            <tr>
+              <td colspan="2" class="text-center">No earnings history available.</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

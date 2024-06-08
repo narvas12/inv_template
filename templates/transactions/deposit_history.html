@@ -1,0 +1,31 @@
+<!-- deposit_history.html -->
+{% extends 'auth_base.html' %}
+{% block content %}
+  <div class="container">
+    <h1 class="mt-4">Deposit History</h1>
+    <div class="table-responsive mt-4">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for deposit in deposits %}
+            <tr>
+              <td>{{ deposit.created_at }}</td>
+              <td>${{ deposit.amount }}</td>
+              <td style="color: {% if deposit.status == 'approved' %}green{% else %}orange{% endif %};">{{ deposit.status }}</td>
+            </tr>
+          {% empty %}
+            <tr>
+              <td colspan="3" class="text-center">No deposit history available.</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

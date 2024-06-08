@@ -1,0 +1,99 @@
+{% extends 'auth_base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="container-fluid">
+    <div class="row justify-content-center vh-100">
+      <div class="col-lg-8 col-md-6">
+        <!-- Adjusted column sizes -->
+        <h1 class="mb-4 text-primary">Start Investing</h1>
+        <div class="">
+          <div class="card-body">
+            <h1 class="card-title">Make a Deposit</h1>
+            <form method="post" class="mt-3">
+              {% csrf_token %}
+              <div class="mb-5">
+                <label for="amount" class="form-label">Enter amount</label>
+                <input type="number" name="amount" id="amount" class="form-control p-3" placeholder="Enter amount" required />
+
+                <div class="mb-3 mt-5">
+                  <label for="membership-level" class="form-label">Select Membership Level</label>
+                  <select class="form-select p-3" id="membership-level" name="membership_level" required>
+                    <option value="" selected disabled>Select Membership Level</option>
+                    <option value="bronze">Basic ($200 - $999) 6% Daily ROI</option>
+                    <option value="silver">Standard ($1,000 - $9,999) 9% Daily ROI</option>
+                    <option value="gold">VIP ($10,000 - $49,999) 11% Daily ROI</option>
+                    <option value="platinum">Prime ($50,000 - $99,999) 15% Daily ROI</option>
+                    <option value="platinum">Gold ($100,000 - $249,999) 17% Daily ROI</option>
+                    <option value="platinum">Royale ($250,000 & above) 19% Daily ROI</option>
+                  </select>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-success">Continue</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <section class="container mt-5 col-lg-8 col-md-6">
+        <h3 class="mb-4 text-primary">Investment Calculator</h3>
+      
+        <div class="form-group mt-2">
+          <label for="principal">Principal Amount:</label>
+          <input type="number" class="form-control" id="principal" placeholder="Enter principal amount" />
+        </div>
+      
+        <div class="form-group mt-3">
+          <label for="dailyRate">Daily Interest Rate (%):</label>
+          <input type="number" class="form-control" id="dailyRate" placeholder="Enter daily interest rate" />
+        </div>
+      
+        <div class="form-group mt-3">
+          <label for="days">Number of Days:</label>
+          <input type="number" class="form-control" id="days" placeholder="Enter number of days" />
+        </div>
+      
+        <button type="button" class="btn btn-primary mt-5" onclick="calculateFutureValue()">Calculate</button>
+      
+        <div class="mt-4">
+          <h4 class="text-primary">Future Value:</h4>
+          <p class="text-success text-bold" id="result"></p>
+        </div>
+      
+        <script>
+          function calculateFutureValue() {
+            var principal = document.getElementById('principal').value.trim();
+            var dailyRate = document.getElementById('dailyRate').value.trim();
+            var days = document.getElementById('days').value.trim();
+      
+            // Check for empty inputs
+            if (!principal || !dailyRate || !days) {
+              var errorMessages = [];
+              if (!principal) errorMessages.push('Principal amount is required.');
+              if (!dailyRate) errorMessages.push('Daily interest rate is required.');
+              if (!days) errorMessages.push('Number of days is required.');
+      
+              var errorMessage = 'Please fix the following errors:\n\n' + errorMessages.join('\n');
+              alert(errorMessage);
+              return;
+            }
+      
+            principal = parseFloat(principal);
+            dailyRate = parseFloat(dailyRate);
+            days = parseInt(days);
+      
+            var dailyRateDecimal = dailyRate / 100;
+            var futureValue = principal * Math.pow(1 + dailyRateDecimal, days);
+      
+            document.getElementById('result').innerText = 'Future Value after ' + days + ' days: $' + futureValue.toFixed(2);
+          }
+        </script>
+      </section>
+      
+      
+    </div>
+  </div>
+
+ 
+  
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'auth_base.html' %}
+
+{% block content %}
+  <div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="text-center text-primary">Send Bonus</h3>
+          </div>
+          <div class="card-body">
+            <form method="post">
+              {% csrf_token %}
+              {% if messages %}
+                {% for message in messages %}
+                  <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                  </div>
+                {% endfor %}
+              {% endif %}
+              <div class="mb-3">
+                <label for="amount" class="form-label">Bonus Amount ($)</label>
+                <input type="number" class="form-control" id="amount" name="amount" required>
+              </div>
+              <div class="mb-3">
+                <label for="recipient_username" class="form-label">Recipient Username</label>
+                <select class="form-select" id="recipient_username" name="recipient_username" required>
+                  <option value="" selected disabled>Select a User</option>
+                  {% for user in all_users %}
+                    <option class="text-secondary" value="{{ user }}">{{ user }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary">Send Bonus</button>
+            </form>
+          </div>
+            
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
