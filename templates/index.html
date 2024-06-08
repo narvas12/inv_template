@@ -129,7 +129,13 @@
                         <p class="mb-3">We stay ahead of the curve by embracing cutting-edge technologies and trends.
                             Our platform provides seamless access to a wide range of assets, including cryptocurrencies,
                             stocks, ETFs, options, mutual funds, and bonds</p>
-                        <a href="#" class="btn text-secondary">Read More <i class="fa fa-angle-right"></i></a>
+
+                        {% if user.is_authenticated %}
+                            <a href="{% url "deposit" %}" class="btn text-secondary">Make Deposit <i class="fa fa-angle-right"></i></a>
+                        {% else %}
+                            <a href="{% url "register" %}" class="btn text-secondary">Start Earning<i class="fa fa-angle-right"></i></a>
+                        {% endif %}
+                        
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
@@ -141,7 +147,11 @@
                         <p class="mb-3">Trust is the cornerstone of our relationship with our users. We provide
                             transparent pricing, real-time data, and clear communication to foster a sense of security
                             and reliability.</p>
-                        <a href="#" class="btn text-secondary">Read More <i class="fa fa-angle-right"></i></a>
+                            {% if user.is_authenticated %}
+                                <a href="{% url "deposit" %}" class="btn text-secondary">Make Deposit <i class="fa fa-angle-right"></i></a>
+                            {% else %}
+                                <a href="{% url "register" %}" class="btn text-secondary">Start Earning<i class="fa fa-angle-right"></i></a>
+                            {% endif %}
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
@@ -153,7 +163,11 @@
                         <p class="mb-3">Our success is measured by the satisfaction of our users. We prioritize their
                             needs, offering intuitive interfaces, educational resources, and responsive customer
                             support.</p>
-                        <a href="#" class="btn text-secondary">Read More <i class="fa fa-angle-right"></i></a>
+                            {% if user.is_authenticated %}
+                                <a href="{% url "deposit" %}" class="btn text-secondary">Make Deposit <i class="fa fa-angle-right"></i></a>
+                            {% else %}
+                                <a href="{% url "register" %}" class="btn text-secondary">Start Earning<i class="fa fa-angle-right"></i></a>
+                            {% endif %}
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
@@ -164,7 +178,11 @@
                         <a href="#" class="h4 mb-3">Security</a>
                         <p class="mb-3">We take data security seriously. Rigorous protocols protect your personal
                             information and assets, allowing you to trade with peace of mind.</p>
-                        <a href="#" class="btn text-secondary">Read More <i class="fa fa-angle-right"></i></a>
+                            {% if user.is_authenticated %}
+                                <a href="{% url "deposit" %}" class="btn text-secondary">Make Deposit <i class="fa fa-angle-right"></i></a>
+                            {% else %}
+                                <a href="{% url "register" %}" class="btn text-secondary">Start Earning<i class="fa fa-angle-right"></i></a>
+                            {% endif %}
                     </div>
                 </div>
             </div>
@@ -227,7 +245,7 @@
                                         <div class="">
                                             <a href="#" class="h4 d-inline-block mb-3">Responsive Support</a>
                                             <p class="mb-0">Our dedicated support team is available to assist you every
-                                                step of the way. Join us at LopeRadar and experience the future of
+                                                step of the way. Earn Now at LopeRadar and experience the future of
                                                 digital trading!</p>
                                         </div>
                                     </div>
@@ -235,7 +253,11 @@
                             </div>
                         </div>
 
-                        <a href="#" class="btn btn-secondary rounded-pill py-3 px-5">Read More</a>
+                        {% if user.is_authenticated %}
+                            <a href="{% url "dashboard" %}" class="btn btn-secondary rounded-pill py-3 px-5">Dashboard</a>
+                        {% else %}
+                            <a href="{% url "register" %}" class="btn btn-secondary rounded-pill py-3 px-5">Earn Now</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -405,54 +427,60 @@
                 <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="product-item">
                         <div class="product-content bg-light text-center rounded-bottom p-4">
-
-
-                            <a href="#" class="h4 d-inline-block mb-3">ESSENTIAL PLAN </a>
+                            <a href="#" class="h4 d-inline-block mb-3">ESSENTIAL PLAN</a>
                             <p class="fs-4 text-primary mb-3">MIN $199 : MAX $999</p>
                             <p>8% Profit after 24 hours</p>
                             <p>Referral commission: 5%</p>
-                            <a href="#" class="btn btn-secondary rounded-pill py-2 px-4">Read More</a>
+                            {% if user.is_authenticated %}
+                                <p></p>
+                            {% else %}
+                                <a href="{% url "register" %}" class="btn btn-secondary rounded-pill py-3 px-5">Earn Now</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="product-item">
                         <div class="product-content bg-light text-center rounded-bottom p-4">
-
-
                             <a href="#" class="h4 d-inline-block mb-3">BASIC PLAN</a>
                             <p class="fs-4 text-primary mb-3">MIN $999: MAX $2,999</p>
                             <p>10% Profit after 24 hours</p>
-                            <p>Referral commission: 5% </p>
-                            <a href="#" class="btn btn-secondary rounded-pill py-2 px-4">Read More</a>
+                            <p>Referral commission: 5%</p>
+                            {% if user.is_authenticated %}
+                                <p></p>
+                            {% else %}
+                                <a href="{% url "register" %}" class="btn btn-secondary rounded-pill py-3 px-5">Earn Now</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
-
                 <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="product-item">
                         <div class="product-content bg-light text-center rounded-bottom p-4">
-
-
                             <a href="#" class="h4 d-inline-block mb-3">STANDARD PLAN (PLAN: A)</a>
                             <p class="fs-4 text-primary mb-3">MIN $2,999 : MAX $5,999</p>
-                            <p>15% Profit after 24 hours</p>
+                            <p>13% Profit after 24 hours</p>
                             <p>Referral commission: 10%</p>
-                            <a href="#" class="btn btn-secondary rounded-pill py-2 px-4">Read More</a>
+                            {% if user.is_authenticated %}
+                                <p></p>
+                            {% else %}
+                                <a href="{% url "register" %}" class="btn btn-secondary rounded-pill py-3 px-5">Earn Now</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
-
                 <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="product-item">
                         <div class="product-content bg-light text-center rounded-bottom p-4">
-
-
                             <a href="#" class="h4 d-inline-block mb-3">STANDARD (PLAN-B)</a>
                             <p class="fs-4 text-primary mb-3">MIN $7,000 : $14,000</p>
-                            <p>20% Profit after 20hours</p>
-                            <p>Referral commission: 5% </p>
-                            <a href="#" class="btn btn-secondary rounded-pill py-2 px-4">Read More</a>
+                            <p>18% Profit after 24 hours</p>
+                            <p>Referral commission: 5%</p>
+                            {% if user.is_authenticated %}
+                                <p></p>
+                            {% else %}
+                                <a href="{% url "register" %}" class="btn btn-secondary rounded-pill py-3 px-5">Earn Now</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -463,16 +491,19 @@
             <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                 <h4 class="text-uppercase text-primary">VIP Plans</h4>
             </div>
-
             <div class="row g-4 justify-content-center">
                 <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="product-item">
                         <div class="product-content bg-light text-center rounded-bottom p-4">
                             <a href="#" class="h4 d-inline-block mb-3">COMPOUNDING PLAN</a>
                             <p class="fs-4 text-primary mb-3">MIN $15,000 : MAX $20,000</p>
-                            <p>12% Profit after 12hours</p>
+                            <p>23% Profit after 24 hours</p>
                             <p>Referral commission: 50%</p>
-                            <a href="#" class="btn btn-secondary rounded-pill py-2 px-4">Read More</a>
+                            {% if user.is_authenticated %}
+                                <p></p>
+                            {% else %}
+                                <a href="{% url "register" %}" class="btn btn-secondary rounded-pill py-3 px-5">Earn Now</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -480,27 +511,32 @@
                     <div class="product-item">
                         <div class="product-content bg-light text-center rounded-bottom p-4">
                             <a href="#" class="h4 d-inline-block mb-3">GOLD PLAN</a>
-                            <p class="fs-4 text-primary mb-3">MIN $25000 : MAX $40000</p>
-                            <p>30% Profit  after 48hours</p>
-                            <p>Referral commission: 5% </p>
-                            <a href="#" class="btn btn-secondary rounded-pill py-2 px-4">Read More</a>
+                            <p class="fs-4 text-primary mb-3">MIN $25,000 : MAX $40,000</p>
+                            <p>28% Profit after 24 hours</p>
+                            <p>Referral commission: 5%</p>
+                            {% if user.is_authenticated %}
+                                <p></p>
+                            {% else %}
+                                <a href="{% url "register" %}" class="btn btn-secondary rounded-pill py-3 px-5">Earn Now</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
-
                 <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="product-item">
                         <div class="product-content bg-light text-center rounded-bottom p-4">
-                            
                             <a href="#" class="h4 d-inline-block mb-3">SPECIAL PLAN</a>
-                            <p class="fs-4 text-primary mb-3">MIN $50000 - UNLIMITED</p>
-                            <p>40% after 72 hours</p>
+                            <p class="fs-4 text-primary mb-3">MIN $50,000 - UNLIMITED</p>
+                            <p>33% Profit after 24 hours</p>
                             <p>Referral commission: 10%</p>
-                            <a href="#" class="btn btn-secondary rounded-pill py-2 px-4">Read More</a>
+                            {% if user.is_authenticated %}
+                                <p></p>
+                            {% else %}
+                                <a href="{% url "register" %}" class="btn btn-secondary rounded-pill py-3 px-5">Earn Now</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

@@ -41,7 +41,7 @@ def about(request):
 
 
 def plans(request):
-    return render(request, 'plans.html')
+    return render(request, 'plans/plans.html')
 
 @login_required
 def auth_plans(request):
@@ -58,22 +58,22 @@ def contact_form(request):
 
         if not name or not email or not subject or not message:
             messages.error(request, 'Please fill in all fields.')
-            return redirect('contact_form')  
+            return redirect('contact_form')
 
-        email_message = render(request, 'email_template.html', {'name': name, 'email': email, 'subject': subject, 'message': message})
+        email_message = render_to_string('email_templates/message.html', {'name': name, 'email': email, 'message': message})
 
         send_mail(
             subject,
             '',
-            settings.EMAIL_HOST_USER, 
-            [settings.EMAIL_HOST_USER],  
-            html_message=email_message.content,
+            settings.EMAIL_HOST_USER,
+            [settings.EMAIL_HOST_USER],
+            html_message=email_message,
         )
 
         messages.success(request, 'Message sent successfully!')
-        return redirect('home') 
+        return redirect('home')
     else:
-        return render(request, 'contact.html') 
+        return render(request, 'contact.html')
     
 
 

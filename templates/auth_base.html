@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>DEFIEARN</title>
+    <title>My Account @LopeRadar</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="keywords" />
     <meta content="" name="description" />
@@ -50,7 +50,7 @@
     <div id="wrapper">
       <aside id="sidebar-wrapper">
         <div class="sidebar-brand mb-5">
-          <img class="logo" src="{% static './img/lope-logo1.jpeg' %}" alt="" />
+          <a href="{% url "home" %}"><img class="logo" src="{% static './img/lope-logo1.jpeg' %}" alt="" /></a>
           <div class="user mt-3">
             <h4>
                 {% if username %}

@@ -95,23 +95,24 @@
                     <a href="{% url "home" %}" class="nav-item nav-link active">Home</a>
                     <a href="{% url "about" %}" class="nav-item nav-link">About Us</a>
                     <a href="{% url "plans" %}" class="nav-item nav-link">Plans</a>
+                    
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">FAQs</a>
                         <div class="dropdown-menu m-0">
-                            <a href="{% url "contact_form" %}" class="nav-item nav-link">Support</a>
+                            <a href="{% url "contact_form" %}" class="dropdown-item">Support</a>
                         </div>
                     </div>
 
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Account</a>
                         <div class="dropdown-menu m-0">
-                            
-                            <a href="{% url "dashboard" %}" class="dropdown-item">Dashboard</a>
-                            <a href="{% url "logout" %}" class="dropdown-item">Signout</a>
-
-                            <a href="{% url "login" %}" class="dropdown-item">Signin</a>
-                            <a href="{% url "register" %}" class="dropdown-item">Register</a>
-
+                            {% if user.is_authenticated %}
+                                <a href="{% url "dashboard" %}" class="dropdown-item">Dashboard</a>
+                                <a href="{% url "logout" %}" class="dropdown-item">Signout</a>
+                            {% else %}
+                                <a href="{% url "login" %}" class="dropdown-item">Signin</a>
+                                <a href="{% url "register" %}" class="dropdown-item">Register</a>
+                            {% endif %}
                         </div>
                     </div>
                     
@@ -122,7 +123,11 @@
                         <a href="tel:+4733378901"><span class="text-primary">Call: +1(413) 353-2732</span></a>
                     </div>
                 </div>
-                <a href="" class="btn btn-primary rounded-pill d-inline-flex flex-shrink-0 py-2 px-4">Join Us</a>
+                {% if user.is_authenticated %}
+                    <a href="{% url "dashboard" %}" class="btn btn-secondary rounded-pill py-3 px-5">Dashboard</a>
+                {% else %}
+                    <a href="{% url "register" %}" class="btn btn-secondary rounded-pill py-3 px-5">Join Us</a>
+                {% endif %}
             </div>
         </nav>
 
