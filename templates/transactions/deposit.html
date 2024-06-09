@@ -20,12 +20,13 @@
                   <label for="membership-level" class="form-label">Select Membership Level</label>
                   <select class="form-select p-3" id="membership-level" name="membership_level" required>
                     <option value="" selected disabled>Select Membership Level</option>
-                    <option value="bronze">Basic ($200 - $999) 6% Daily ROI</option>
-                    <option value="silver">Standard ($1,000 - $9,999) 9% Daily ROI</option>
-                    <option value="gold">VIP ($10,000 - $49,999) 11% Daily ROI</option>
-                    <option value="platinum">Prime ($50,000 - $99,999) 15% Daily ROI</option>
-                    <option value="platinum">Gold ($100,000 - $249,999) 17% Daily ROI</option>
-                    <option value="platinum">Royale ($250,000 & above) 19% Daily ROI</option>
+                    <option value="essential_a">Essential Plan A ($199 - $1499) 8% Profit after 24 hours</option>
+                    <option value="essential_b">Essential Plan B ($1500 - $2999) 10% Profit after 20 hours</option>
+                    <option value="standard_a">Standard Plan A ($2999 - $5999) 15% Profit after 24 hours</option>
+                    <option value="standard_b">Standard Plan B ($7000 - $14999) 20% Profit after 20 hours</option>
+                    <option value="vip_compounding">VIP Compounding Plan ($15000 - $20000) 25% Profit after 24 hours</option>
+                    <option value="vip_gold">VIP Gold Plan ($25000 - $40000) 20% Profit after 48 hours</option>
+                    <option value="vip_special">VIP Special Plan ($50000 and above) 40% Profit after 72 hours</option>
                   </select>
                 </div>
               </div>
@@ -89,11 +90,6 @@
           }
         </script>
       </section>
-      
-      
     </div>
   </div>
-
- 
-  
 {% endblock %}

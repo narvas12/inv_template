@@ -29,7 +29,7 @@
     <h1 class="display-3 text-capitalize mb-3 text-light">No Denial, Guaranteed Rewards! Get Paid in 24 Hours or We Pay $1000 Extra</h1>
 </div>
        
-   <!-- Products Start -->
+<!-- Products Start -->
 <div class="container-fluid product py-5">
     <div class="container py-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
@@ -40,8 +40,8 @@
             <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
                 <div class="product-item">
                     <div class="product-content bg-light text-center rounded-bottom p-4">
-                        <a href="#" class="h4 d-inline-block mb-3">ESSENTIAL PLAN</a>
-                        <p class="fs-4 text-primary mb-3">MIN $199 : MAX $999</p>
+                        <a href="#" class="h4 d-inline-block mb-3">ESSENTIAL PLAN (PLAN A)</a>
+                        <p class="fs-4 text-primary mb-3">MIN $199 : MAX $1,499</p>
                         <p>8% Profit after 24 hours</p>
                         <p>Referral commission: 5%</p>
                         {% if user.is_authenticated %}
@@ -55,9 +55,9 @@
             <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
                 <div class="product-item">
                     <div class="product-content bg-light text-center rounded-bottom p-4">
-                        <a href="#" class="h4 d-inline-block mb-3">BASIC PLAN</a>
-                        <p class="fs-4 text-primary mb-3">MIN $999: MAX $2,999</p>
-                        <p>10% Profit after 24 hours</p>
+                        <a href="#" class="h4 d-inline-block mb-3">ESSENTIAL PLAN (PLAN B)</a>
+                        <p class="fs-4 text-primary mb-3">MIN $1,500 : MAX $2,999</p>
+                        <p>10% Profit after 20 hours</p>
                         <p>Referral commission: 5%</p>
                         {% if user.is_authenticated %}
                             <p></p>
@@ -70,9 +70,9 @@
             <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
                 <div class="product-item">
                     <div class="product-content bg-light text-center rounded-bottom p-4">
-                        <a href="#" class="h4 d-inline-block mb-3">STANDARD PLAN (PLAN: A)</a>
+                        <a href="#" class="h4 d-inline-block mb-3">STANDARD PLAN (PLAN A)</a>
                         <p class="fs-4 text-primary mb-3">MIN $2,999 : MAX $5,999</p>
-                        <p>13% Profit after 24 hours</p>
+                        <p>15% Profit after 24 hours</p>
                         <p>Referral commission: 10%</p>
                         {% if user.is_authenticated %}
                             <p></p>
@@ -85,9 +85,9 @@
             <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
                 <div class="product-item">
                     <div class="product-content bg-light text-center rounded-bottom p-4">
-                        <a href="#" class="h4 d-inline-block mb-3">STANDARD (PLAN-B)</a>
-                        <p class="fs-4 text-primary mb-3">MIN $7,000 : $14,000</p>
-                        <p>18% Profit after 24 hours</p>
+                        <a href="#" class="h4 d-inline-block mb-3">STANDARD PLAN (PLAN B)</a>
+                        <p class="fs-4 text-primary mb-3">MIN $7,000 : MAX $14,999</p>
+                        <p>20% Profit after 20 hours</p>
                         <p>Referral commission: 5%</p>
                         {% if user.is_authenticated %}
                             <p></p>
@@ -110,7 +110,7 @@
                     <div class="product-content bg-light text-center rounded-bottom p-4">
                         <a href="#" class="h4 d-inline-block mb-3">COMPOUNDING PLAN</a>
                         <p class="fs-4 text-primary mb-3">MIN $15,000 : MAX $20,000</p>
-                        <p>23% Profit after 24 hours</p>
+                        <p>25% Profit after 24 hours</p>
                         <p>Referral commission: 50%</p>
                         {% if user.is_authenticated %}
                             <p></p>
@@ -125,7 +125,7 @@
                     <div class="product-content bg-light text-center rounded-bottom p-4">
                         <a href="#" class="h4 d-inline-block mb-3">GOLD PLAN</a>
                         <p class="fs-4 text-primary mb-3">MIN $25,000 : MAX $40,000</p>
-                        <p>28% Profit after 24 hours</p>
+                        <p>20% Profit after 48 hours</p>
                         <p>Referral commission: 5%</p>
                         {% if user.is_authenticated %}
                             <p></p>
@@ -140,7 +140,7 @@
                     <div class="product-content bg-light text-center rounded-bottom p-4">
                         <a href="#" class="h4 d-inline-block mb-3">SPECIAL PLAN</a>
                         <p class="fs-4 text-primary mb-3">MIN $50,000 - UNLIMITED</p>
-                        <p>33% Profit after 24 hours</p>
+                        <p>40% Profit after 72 hours</p>
                         <p>Referral commission: 10%</p>
                         {% if user.is_authenticated %}
                             <p></p>
@@ -154,5 +154,6 @@
     </div>
 </div>
 <!-- Products End -->
+
 
     {% endblock  %}
