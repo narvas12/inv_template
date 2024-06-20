@@ -111,7 +111,7 @@ def register_view(request):
 
 def send_user_welcome_message(user):
     subject = 'Welcome to Our Website!'
-    sender_email = 'hello@okxguard.com' 
+    sender_email = settings.EMAIL_HOST_USER 
 
     html_message = render_to_string('email_templates/welcome_email.html', {'user': user})
     plain_message = strip_tags(html_message)
@@ -126,7 +126,7 @@ def send_user_welcome_message(user):
 
 def send_company_notification(user, ip, country, device_type):
     subject = 'New User Registration Notification'
-    sender_email = 'hello@okxguard.com' 
+    sender_email = settings.EMAIL_HOST_USER 
 
     message = f'A new user has registered on the website.\n\nUsername: {user.username}\nEmail: {user.email}\nIP Address: {ip}\nCountry: {country}\nDevice Type: {device_type}'
     
@@ -134,7 +134,7 @@ def send_company_notification(user, ip, country, device_type):
         subject,
         message,
         sender_email,
-        ['okxguard@gmail.com'], 
+        [settings.EMAIL_HOST_USER], 
     )
 
 
@@ -213,7 +213,7 @@ def send_deposit_notification_email(user, amount, plan):
 
     plain_message = strip_tags(html_message)
 
-    send_mail(subject, plain_message, sender_email, ['okxguard@gmail.com'], html_message=html_message)
+    send_mail(subject, plain_message, sender_email, [settings.EMAIL_HOST_USER], html_message=html_message)
 
 
 def deposit_success_view(request):
@@ -260,7 +260,7 @@ def send_confirmation_email(user, wallet_credited, transaction_hash):
         subject,
         strip_tags(html_message), 
         sender_email,
-        ['okxguard@gmail.com'],
+        [settings.EMAIL_HOST_USER],
         html_message=html_message
     )
 
@@ -345,7 +345,7 @@ def notify_company_withdrawal(withdrawal):
         subject,
         plain_message,
         sender_email,
-        ['okxguard@gmail.com'],
+        [settings.EMAIL_HOST_USER],
         html_message=html_message
     )
 
