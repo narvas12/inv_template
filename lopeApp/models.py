@@ -37,6 +37,22 @@ class Deposit(models.Model):
     def __str__(self):
         return f"Deposit of {self.amount} by {self.user_profile.user.username}"
 
+class Investment(models.Model):
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    start_date = models.DateTimeField(auto_now_add=True)
+    end_date = models.DateTimeField(null=True, blank=True)
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f"{self.user_profile.user.username} - {self.amount}"
+
+    def check_active(self):
+        if self.end_date and timezone.now() > self.end_date:
+            self.is_active = False
+            self.save()
+        return self.is_active
+    
 class Withdrawal(models.Model):
     user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     amount = models.DecimalField(max_digits=20, decimal_places=2)

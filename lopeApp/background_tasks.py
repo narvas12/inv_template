@@ -1,4 +1,4 @@
-from lopeApp.jobs import tasks  
+from lopeApp.jobs import tasks_test 
 def start_background_tasks():
-    tasks.start()
+    tasks_test.start()
 

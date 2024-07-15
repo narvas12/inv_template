@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-b=v3$!ckj6242n@_px=^f0$4jvlle7a#qekba1!_6!7@%3pn(p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -150,14 +150,14 @@ CSRF_COOKIE_SECURE=False
 
 ASGI_APPLICATION = 'fdg.asgi.application'
 
-SCHEDULER_AUTOSTART = True  # Start the scheduler automatically on application startup
-SCHEDULER_TIMEZONE = 'UTC'  # Set the scheduler timezone (optional)
+SCHEDULER_AUTOSTART = True  
+SCHEDULER_TIMEZONE = 'UTC' 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'loperadarassistservice@gmail.com'
-EMAIL_HOST_PASSWORD = 'tylgzvpnbuanbkyb'
+EMAIL_HOST_USER = 'polycrronos@gmail.com'
+EMAIL_HOST_PASSWORD = 'ditbviskswqndgpl'
 EMAIL_USE_TLS = True
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

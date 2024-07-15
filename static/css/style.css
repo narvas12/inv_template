@@ -14,6 +14,9 @@
     opacity: 1;
 }
 /*** Spinner End ***/
+.bg-black{
+    background-color: black;
+}
 
 .back-to-top {
     position: fixed;
@@ -120,7 +123,7 @@
 .navbar .dropdown-toggle::after {
     border: none;
     content: "\f107";
-    font-family: "Font Awesome 5 Free";
+    font-family: "Ubuntu Mono", monospace;
     font-weight: 600;
     vertical-align: middle;
     margin-left: 8px;
@@ -410,13 +413,14 @@
 .bg-breadcrumb {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(rgba(0, 20, 66, 0.7), rgba(0, 20, 66, 0.7)), url(../img/coins.png);
+    background: linear-gradient(rgba(0, 20, 66, 0.7), rgba(0, 20, 66, 0.7)), url(../img/breadcrump.jpg);
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
     padding: 120px 0 60px 0;
     transition: 0.5s;
 }
+
 
 .bg-breadcrumb .breadcrumb {
     position: relative;
@@ -596,7 +600,7 @@
 .counter {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(rgba(25, 92, 154, 0.9), rgb(25, 92, 154)), url(../img/fact-bg.jpg);
+    background: linear-gradient(rgba(46, 154, 25, 0.616), rgb(25, 154, 36)), url(../img/fact.jpeg);
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
@@ -860,7 +864,7 @@
 
 /*** Footer Start ***/
 .footer {
-    background: var(--bs-dark);
+    background: black;
 }
 
 .footer .footer-item a {
@@ -895,7 +899,7 @@
 /*** copyright Start ***/
 .copyright {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    background: var(--bs-dark);
+    background: black;
 }
 /*** copyright end ***/
 
@@ -916,3 +920,24 @@
     color: #155724;
     border: 1px solid #c3e6cb;
 }
+
+.google_translate_element label {
+    /* Style for labels */
+    font-weight: bold;
+    color: rgb(2, 136, 36);
+    margin-right: 10px;
+}
+
+.google_translate_element select {
+    width: 200px;
+    font-size: 16px;
+    background-color: #ffffff;
+    border: 1px solid #33a000;
+    padding: 5px;
+    
+  }
+  
+
+  .text-dark{
+    color:black;
+  }

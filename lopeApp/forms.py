@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-
+from decimal import Decimal
 
 class BootstrapFormMixin:
     def __init__(self, *args, **kwargs):
@@ -29,3 +29,20 @@ class UserRegistrationForm(UserCreationForm):
 class UserLoginForm(BootstrapFormMixin, forms.Form):
     username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Username'}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
+    
+
+
+class SpendFundForm(forms.Form):
+    amount = forms.DecimalField(
+        max_digits=10, 
+        decimal_places=2, 
+        widget=forms.NumberInput(attrs={
+            'placeholder': 'Enter amount'
+        })
+    )
+
+    def clean_amount(self):
+        amount = self.cleaned_data['amount']
+        if amount <= Decimal('0.00'):
+            raise forms.ValidationError("The amount must be greater than zero.")
+        return amount

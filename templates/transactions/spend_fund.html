@@ -1,0 +1,103 @@
+<!-- templates/accounts/spend_fund.html -->
+{% extends 'auth_base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-body text-center p-5">
+            <h2 class="card-title">Spend Fund</h2>
+            <p class="card-text {% if wallet_balance == 0 %}text-danger{% else %}text-primary{% endif %}">Wallet Balance: ${{ wallet_balance|floatformat:2 }}</p>
+            <p class="card-text {% if earnings_total == 0 %}text-danger{% else %}text-primary{% endif %}">Total Earnings: ${{ earnings_total|floatformat:2 }}</p>
+
+            <form method="post" class="mt-4">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form.as_p }}
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Transfer Funds</button>
+            </form>
+
+            <a class="btn btn-secondary mt-3" href="{% url 'dashboard' %}">Back to Dashboard</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    *{
+        list-style-type:none;
+        
+    }
+    .container {
+        max-width: 600px;
+    }
+    .card {
+        border: none;
+        border-radius: 10px;
+    }
+    .card-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    .card-text {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    .form-control {
+        display: block;
+        width: 100%;
+        padding: 0.75rem 1.25rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    input{
+        outline: none;
+        border: none;
+        border-bottom: 1px solid black;
+        padding: 5px;
+        font-size: 14px;
+        border-radius: 5px;
+        text-align: center;
+    }
+    .form-control:focus {
+        color: #495057;
+        background-color: #fff;
+        border-color: #80bdff;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+    .btn-block {
+        width: 100%;
+    }
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+    }
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+    .btn-secondary {
+        background-color: #6c757d;
+        border: none;
+    }
+    .btn-secondary:hover {
+        background-color: #5a6268;
+    }
+    .text-danger {
+        color: red !important;
+    }
+    .text-success {
+        color: green !important;
+    }
+</style>
+{% endblock %}

@@ -5,11 +5,11 @@ from django.template.loader import render_to_string
 from core import settings
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from .models import Bonus, DepositConfirmation, Referal, UserProfile, Wallet, Deposit, Withdrawal, Earnings
+from .models import Bonus, DepositConfirmation, Investment, Referal, UserProfile, Wallet, Deposit, Withdrawal, Earnings
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
-from .forms import UserRegistrationForm, UserLoginForm
+from .forms import SpendFundForm, UserRegistrationForm, UserLoginForm
 from django.contrib.auth import logout
 from django.contrib import messages
 from django.core.mail import send_mail
@@ -43,11 +43,14 @@ def about(request):
 def plans(request):
     return render(request, 'plans/plans.html')
 
+# @login_required
+def manager(request):
+    return render(request, 'management/manager.html')
+
+
 @login_required
 def auth_plans(request):
     return render(request, 'plans/auth_plans.html')
-
-
 
 def contact_form(request):
     if request.method == 'POST':
@@ -68,6 +71,7 @@ def contact_form(request):
             settings.EMAIL_HOST_USER,
             [settings.EMAIL_HOST_USER],
             html_message=email_message,
+            fail_silently=True
         )
 
         messages.success(request, 'Message sent successfully!')
@@ -121,7 +125,8 @@ def send_user_welcome_message(user):
         plain_message,
         sender_email,
         [user.email],
-        html_message=html_message
+        html_message=html_message,
+        fail_silently=True
     )
 
 def send_company_notification(user, ip, country, device_type):
@@ -135,6 +140,7 @@ def send_company_notification(user, ip, country, device_type):
         message,
         sender_email,
         [settings.EMAIL_HOST_USER], 
+        fail_silently=True
     )
 
 
@@ -196,18 +202,18 @@ def deposit_view(request):
 
 def send_deposit_email(user, amount, plan):
     subject = 'Deposit Initiated'
-    sender_email = 'billing@okxguard.com' 
+    sender_email = 'billing@polkavite.com' 
 
     html_message = render_to_string('email_templates/deposit_initiation_email.html', {'user': user, 'amount': amount, 'membership_level':plan})
 
     plain_message = strip_tags(html_message)
 
-    send_mail(subject, plain_message, sender_email, [user.email], html_message=html_message)
+    send_mail(subject, plain_message, sender_email, [user.email], html_message=html_message, fail_silently=True)
     
 
 def send_deposit_notification_email(user, amount, plan):
     subject = 'Deposit Initiated'
-    sender_email = 'billing@okxguard.com' 
+    sender_email = 'billing@polkavite.com' 
 
     html_message = render_to_string('email_templates/deposit_initiation_email.html', {'user': user, 'amount': amount, 'membership_level':plan})
 
@@ -248,7 +254,7 @@ def confirm_deposit(request):
 
 def send_confirmation_email(user, wallet_credited, transaction_hash):
     subject = 'Deposit Confirmation'
-    sender_email = 'billing@okxguard.com'  
+    sender_email = 'billing@polkavite.com'  
 
     html_message = render_to_string('email_templates/deposit_approval_request_email.html', {
         'user': user,
@@ -261,7 +267,8 @@ def send_confirmation_email(user, wallet_credited, transaction_hash):
         strip_tags(html_message), 
         sender_email,
         [settings.EMAIL_HOST_USER],
-        html_message=html_message
+        html_message=html_message,
+        fail_silently=True
     )
 
 
@@ -321,7 +328,7 @@ def withdrawal_view(request):
 
 def send_user_withdrawal_notification(user, withdrawal):
     subject = 'Withdrawal Request Confirmation'
-    sender_email = 'billing@okxguard.com'  # Update with your email
+    sender_email = 'billing@polkavite.com'  # Update with your email
 
     html_message = render_to_string('email_templates/withdrawal_user_notification.html', {'user': user, 'withdrawal': withdrawal})
     plain_message = strip_tags(html_message)
@@ -331,7 +338,8 @@ def send_user_withdrawal_notification(user, withdrawal):
         plain_message,
         sender_email,
         [user.email],
-        html_message=html_message
+        html_message=html_message,
+        fail_silently=True
     )
 
 def notify_company_withdrawal(withdrawal):
@@ -346,7 +354,8 @@ def notify_company_withdrawal(withdrawal):
         plain_message,
         sender_email,
         [settings.EMAIL_HOST_USER],
-        html_message=html_message
+        html_message=html_message,
+        fail_silently=True
     )
 
 def withdrawal_success(request):
@@ -361,20 +370,33 @@ def dashboard(request):
     username = user_profile.user.username
 
     approved_deposits_total = Deposit.objects.filter(user_profile=user_profile, status='approved').aggregate(Sum('amount'))['amount__sum'] or Decimal('0.00')
+    has_deposits = approved_deposits_total > Decimal('0.00')
 
     earnings_total = Earnings.objects.filter(user_profile=user_profile).aggregate(Sum('earnings'))['earnings__sum'] or Decimal('0.00')
+    has_earnings = earnings_total > Decimal('0.00')
+
     approved_withdrawals_total = Withdrawal.objects.filter(user_profile=user_profile, approved=True).aggregate(Sum('amount'))['amount__sum'] or Decimal('0.00')
-    wallet_balance = user_profile.wallet.balance - approved_withdrawals_total
+    has_withdrawals = approved_withdrawals_total > Decimal('0.00')
+
+    wallet_balance = user_profile.wallet.balance - approved_withdrawals_total if hasattr(user_profile, 'wallet') else Decimal('0.00')
+    has_wallet = hasattr(user_profile, 'wallet') and wallet_balance > Decimal('0.00')
 
     pending_withdrawals_total = Withdrawal.objects.filter(user_profile=user_profile, approved=False).aggregate(Sum('amount'))['amount__sum'] or Decimal('0.00')
+    has_pending_withdrawals = pending_withdrawals_total > Decimal('0.00')
 
     total_earnings = earnings_total
 
     try:
         referal = Referal.objects.get(user=request.user)
         referal_bonus = referal.referal_bonus
+        has_referal = True
     except Referal.DoesNotExist:
         referal_bonus = Decimal(0)
+        has_referal = False
+
+    active_investments = Investment.objects.filter(user_profile=user_profile, is_active=True)
+    total_active_investments = active_investments.aggregate(Sum('amount'))['amount__sum'] or Decimal('0.00')
+    has_active_investments = total_active_investments > Decimal('0.00')
 
     context = {
         'approved_deposits_total': approved_deposits_total,
@@ -382,10 +404,19 @@ def dashboard(request):
         'pending_withdrawals_total': pending_withdrawals_total,
         'total_earnings': total_earnings,
         'username': username,
-        'referal_bonus':referal_bonus
+        'referal_bonus': referal_bonus,
+        'total_active_investments': total_active_investments,
+        'has_deposits': has_deposits,
+        'has_earnings': has_earnings,
+        'has_withdrawals': has_withdrawals,
+        'has_wallet': has_wallet,
+        'has_pending_withdrawals': has_pending_withdrawals,
+        'has_referal': has_referal,
+        'has_active_investments': has_active_investments,
     }
 
     return render(request, 'accounts/dashboard.html', context)
+
 
 
 @login_required
@@ -544,24 +575,31 @@ def referal(request, username):
 
 
 
+def send_email(user, subject, template_name, from_email):
+    html_content = render_to_string(template_name, {'user': user})
+    text_content = strip_tags(html_content)
+
+    email = EmailMultiAlternatives(
+        subject=subject,
+        body=text_content,
+        from_email=from_email,
+        to=[user.email]
+    )
+    email.attach_alternative(html_content, "text/html")
+    email.send(fail_silently=False)
+
 def send_monthly_offer(request):
     if request.method == 'POST':
         selected_users = request.POST.getlist('selected_users')
         users = User.objects.filter(id__in=selected_users)
+        
         for user in users:
-
-            html_content = render_to_string('email_templates/montly_offer.html', {'user': user})
-            text_content = strip_tags(html_content) 
-            
-
-            email = EmailMultiAlternatives(
+            send_email(
+                user=user,
                 subject='Special Monthly Offer',
-                body=text_content,
-                from_email='offers@defiearn.org',
-                to=[user.email],
+                template_name='email_templates/monthly_offer.html',
+                from_email='offers@polkavite.com'
             )
-            email.attach_alternative(html_content, "text/html")
-            email.send(fail_silently=False)
 
         messages.success(request, 'Monthly offers have been sent successfully.')
         return redirect('send_monthly_offer')
@@ -575,23 +613,59 @@ def send_new_month_message(request):
     if request.method == 'POST':
         selected_users = request.POST.getlist('selected_users')
         users = User.objects.filter(id__in=selected_users)
+        
         for user in users:
-
-            html_content = render_to_string('email_templates/new_month.html', {'user': user})
-            text_content = strip_tags(html_content) 
-            
-
-            email = EmailMultiAlternatives(
-                subject='Happy New MOnth',
-                body=text_content,
-                from_email='admin@defiearn.org',
-                to=[user.email],
+            send_email(
+                user=user,
+                subject='Happy New Month',
+                template_name='email_templates/send_new_month_message.html',
+                from_email='admin@polkavite.com'
             )
-            email.attach_alternative(html_content, "text/html")
-            email.send(fail_silently=False)
 
         messages.success(request, 'Messages have been sent successfully.')
         return redirect('send_new_month_message')
 
     users = User.objects.all()
-    return render(request, 'management/new_month.html', {'users': users})
+    return render(request, 'management/send_new_month_message.html', {'users': users})
+
+
+
+
+@login_required
+def spend_fund(request):
+    user_profile, created = UserProfile.objects.get_or_create(user=request.user)
+    wallet_balance = user_profile.wallet.balance if hasattr(user_profile, 'wallet') else Decimal('0.00')
+    
+    # Calculate total earnings
+    earnings_total = Earnings.objects.filter(user_profile=user_profile).aggregate(Sum('earnings'))['earnings__sum'] or Decimal('0.00')
+
+    if request.method == 'POST':
+        form = SpendFundForm(request.POST)
+        if form.is_valid():
+            amount = form.cleaned_data['amount']
+            if earnings_total >= amount:
+                # Deduct the amount from wallet balance
+                user_profile.wallet.balance -= amount
+                user_profile.wallet.save()
+
+                # Create an active investment
+                Investment.objects.create(
+                    user_profile=user_profile,
+                    amount=amount,
+                    is_active=True
+                )
+
+                messages.success(request, f'You have successfully invested ${amount}.')
+                return redirect('dashboard')
+            else:
+                form.add_error('amount', 'Insufficient earnings')
+    else:
+        form = SpendFundForm()
+
+    context = {
+        'form': form,
+        'wallet_balance': wallet_balance,
+        'earnings_total': earnings_total,
+    }
+
+    return render(request, 'transactions/spend_fund.html', context)

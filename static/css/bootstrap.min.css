@@ -4,6 +4,9 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 :root {
     --bs-blue: #0d6efd;
     --bs-indigo: #6610f2;
@@ -14,20 +17,20 @@
     --bs-yellow: #ffc107;
     --bs-green: #198754;
     --bs-teal: #20c997;
-    --bs-cyan: #0dcaf0;
+    --bs-cyan: #0df03e;
     --bs-white: #fff;
     --bs-gray: #6c757d;
     --bs-gray-dark: #343a40;
-    --bs-primary: #032a49;
-    --bs-secondary: #04436d;
-    --bs-success: #198754;
-    --bs-info: #0dcaf0;
+    --bs-primary: #01681b;
+    --bs-secondary: #028818;
+    --bs-success: #0df03e;
+    --bs-info: #0df073;
     --bs-warning: #ffc107;
     --bs-danger: #dc3545;
     --bs-light: #F2F9F9;
-    --bs-dark: #032846;
-    --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --bs-dark: #01681b;
+    --bs-font-sans-serif: "Roboto", sans-serif;
+    --bs-font-monospace: var(--bs-font-sans-serif);
     --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0))
 }
 
@@ -45,7 +48,7 @@
 
 body {
     margin: 0;
-    font-family: "Open Sans", sans-serif;
+    font-family: var(--bs-font-sans-serif);
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -81,10 +84,10 @@ h1,
 .h1 {
     margin-top: 0;
     margin-bottom: .5rem;
-    font-family: "Playfair Display", serif;
-    font-weight: 500;
+    font-family: var(--bs-font-sans-serif);
+    font-weight: 700;
     line-height: 1.2;
-    color: #001442
+    color: var(--bs-dark)
 }
 
 h1,
@@ -232,12 +235,12 @@ sup {
 }
 
 a {
-    color: #04436d;
+    color: var(--bs-secondary);
     text-decoration: none
 }
 
 a:hover {
-    color: #00a7c7
+    color: var(--bs-info)
 }
 
 a:not([href]):not([class]),
@@ -250,7 +253,7 @@ pre,
 code,
 kbd,
 samp {
-    font-family: var(--bs-font-monospace);
+    font-family: var(--bs-font-sans-serif);
     font-size: 1em;
     direction: ltr
         /* rtl:ignore */
@@ -2516,8 +2519,8 @@ textarea.form-control-lg {
 }
 
 .form-check-input:checked {
-    background-color: #04436d;
-    border-color: #04436d
+    background-color: var(--bs-secondary);
+    border-color: var(--bs-secondary)
 }
 
 .form-check-input:checked[type=checkbox] {
@@ -2529,8 +2532,8 @@ textarea.form-control-lg {
 }
 
 .form-check-input[type=checkbox]:indeterminate {
-    background-color: #04436d;
-    border-color: #04436d;
+    background-color: var(--bs-secondary);
+    border-color: var(--bs-secondary);
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e")
 }
 
@@ -2619,7 +2622,7 @@ textarea.form-control-lg {
     width: 1rem;
     height: 1rem;
     margin-top: -0.25rem;
-    background-color: #04436d;
+    background-color: var(--bs-secondary);
     border: 0;
     border-radius: 1rem;
     transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
@@ -2649,7 +2652,7 @@ textarea.form-control-lg {
 .form-range::-moz-range-thumb {
     width: 1rem;
     height: 1rem;
-    background-color: #04436d;
+    background-color: var(--bs-secondary);
     border: 0;
     border-radius: 1rem;
     transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
@@ -3082,8 +3085,8 @@ fieldset:disabled .btn {
 
 .btn-primary {
     color: #000;
-    background-color: #04436d;
-    border-color: #04436d
+    background-color: var(--bs-secondary);
+    border-color: var(--bs-secondary)
 }
 
 .btn-primary:hover {
@@ -3121,14 +3124,14 @@ fieldset:disabled .btn {
 .btn-primary:disabled,
 .btn-primary.disabled {
     color: #000;
-    background-color: #04436d;
-    border-color: #04436d
+    background-color: var(--bs-secondary);
+    border-color: var(--bs-secondary)
 }
 
 .btn-secondary {
     color: #fff;
-    background-color: #04436d;
-    border-color: #04436d
+    background-color: var(--bs-secondary);
+    border-color: var(--bs-secondary)
 }
 
 .btn-secondary:hover {
@@ -3166,8 +3169,8 @@ fieldset:disabled .btn {
 .btn-secondary:disabled,
 .btn-secondary.disabled {
     color: #fff;
-    background-color: #04436d;
-    border-color: #04436d
+    background-color: var(--bs-secondary);
+    border-color: var(--bs-secondary)
 }
 
 .btn-success {
@@ -3441,14 +3444,14 @@ fieldset:disabled .btn {
 }
 
 .btn-outline-primary {
-    color: #04436d;
-    border-color: #04436d
+    color: var(--bs-secondary);
+    border-color: var(--bs-secondary)
 }
 
 .btn-outline-primary:hover {
     color: #000;
-    background-color: #04436d;
-    border-color: #04436d
+    background-color: var(--bs-secondary);
+    border-color: var(--bs-secondary)
 }
 
 .btn-check:focus+.btn-outline-primary,
@@ -3462,8 +3465,8 @@ fieldset:disabled .btn {
 .btn-outline-primary.active,
 .btn-outline-primary.dropdown-toggle.show {
     color: #000;
-    background-color: #04436d;
-    border-color: #04436d
+    background-color: var(--bs-secondary);
+    border-color: var(--bs-secondary)
 }
 
 .btn-check:checked+.btn-outline-primary:focus,
@@ -3476,19 +3479,19 @@ fieldset:disabled .btn {
 
 .btn-outline-primary:disabled,
 .btn-outline-primary.disabled {
-    color: #04436d;
+    color: var(--bs-secondary);
     background-color: rgba(0, 0, 0, 0)
 }
 
 .btn-outline-secondary {
-    color: #04436d;
-    border-color: #04436d
+    color: var(--bs-secondary);
+    border-color: var(--bs-secondary)
 }
 
 .btn-outline-secondary:hover {
     color: #fff;
-    background-color: #04436d;
-    border-color: #04436d
+    background-color: var(--bs-secondary);
+    border-color: var(--bs-secondary)
 }
 
 .btn-check:focus+.btn-outline-secondary,
@@ -3502,8 +3505,8 @@ fieldset:disabled .btn {
 .btn-outline-secondary.active,
 .btn-outline-secondary.dropdown-toggle.show {
     color: #fff;
-    background-color: #04436d;
-    border-color: #04436d
+    background-color: var(--bs-secondary);
+    border-color: var(--bs-secondary)
 }
 
 .btn-check:checked+.btn-outline-secondary:focus,
@@ -3516,7 +3519,7 @@ fieldset:disabled .btn {
 
 .btn-outline-secondary:disabled,
 .btn-outline-secondary.disabled {
-    color: #04436d;
+    color: var(--bs-secondary);
     background-color: rgba(0, 0, 0, 0)
 }
 
@@ -3762,7 +3765,7 @@ fieldset:disabled .btn {
 
 .btn-link {
     font-weight: 400;
-    color: #04436d;
+    color: var(--bs-secondary);
     text-decoration: none
 }
 
@@ -4138,7 +4141,7 @@ fieldset:disabled .btn {
 .dropdown-item:active {
     color: #fff;
     text-decoration: none;
-    background-color: #04436d
+    background-color: var(--bs-secondary)
 }
 
 .dropdown-item.disabled,
@@ -4186,7 +4189,7 @@ fieldset:disabled .btn {
 .dropdown-menu-dark .dropdown-item.active,
 .dropdown-menu-dark .dropdown-item:active {
     color: #fff;
-    background-color: #04436d
+    background-color: var(--bs-secondary)
 }
 
 .dropdown-menu-dark .dropdown-item.disabled,
@@ -4328,7 +4331,7 @@ fieldset:disabled .btn {
 .nav-link {
     display: block;
     padding: .5rem 1rem;
-    color: #04436d;
+    color: var(--bs-secondary);
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out
 }
 
@@ -4395,7 +4398,7 @@ fieldset:disabled .btn {
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
     color: #fff;
-    background-color: #04436d
+    background-color: var(--bs-secondary)
 }
 
 .nav-fill>.nav-link,
@@ -5148,7 +5151,7 @@ fieldset:disabled .btn {
 .page-link {
     position: relative;
     display: block;
-    color: #04436d;
+    color: var(--bs-secondary);
     background-color: #fff;
     border: 1px solid #dee2e6;
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
@@ -5182,8 +5185,8 @@ fieldset:disabled .btn {
 .page-item.active .page-link {
     z-index: 3;
     color: #fff;
-    background-color: #04436d;
-    border-color: #04436d
+    background-color: var(--bs-secondary);
+    border-color: var(--bs-secondary)
 }
 
 .page-item.disabled .page-link {
@@ -5390,7 +5393,7 @@ fieldset:disabled .btn {
     color: #fff;
     text-align: center;
     white-space: nowrap;
-    background-color: #04436d;
+    background-color: var(--bs-secondary);
     transition: width .6s ease
 }
 
@@ -5481,8 +5484,8 @@ fieldset:disabled .btn {
 .list-group-item.active {
     z-index: 2;
     color: #fff;
-    background-color: #04436d;
-    border-color: #04436d
+    background-color: var(--bs-secondary);
+    border-color: var(--bs-secondary)
 }
 
 .list-group-item+.list-group-item {
@@ -6245,7 +6248,7 @@ fieldset:disabled .btn {
     z-index: 1080;
     display: block;
     margin: 0;
-    font-family: "Open Sans", sans-serif;
+    font-family: var(--bs-font-sans-serif);
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
@@ -6372,7 +6375,7 @@ fieldset:disabled .btn {
     z-index: 1070;
     display: block;
     max-width: 276px;
-    font-family: "Open Sans", sans-serif;
+    font-family: var(--bs-font-sans-serif);
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
@@ -6881,7 +6884,7 @@ fieldset:disabled .btn {
 }
 
 .link-primary {
-    color: #04436d
+    color: var(--bs-secondary)
 }
 
 .link-primary:hover,
@@ -6890,7 +6893,7 @@ fieldset:disabled .btn {
 }
 
 .link-secondary {
-    color: #04436d
+    color: var(--bs-secondary)
 }
 
 .link-secondary:hover,
@@ -7307,11 +7310,11 @@ fieldset:disabled .btn {
 }
 
 .border-primary {
-    border-color: #04436d !important
+    border-color: var(--bs-secondary) !important
 }
 
 .border-secondary {
-    border-color: #04436d !important
+    border-color: var(--bs-secondary) !important
 }
 
 .border-success {
@@ -8163,7 +8166,7 @@ fieldset:disabled .btn {
 }
 
 .font-monospace {
-    font-family: var(--bs-font-monospace) !important
+    font-family: var(--bs-font-sans-serif) !important
 }
 
 .fs-1 {
@@ -8284,11 +8287,11 @@ fieldset:disabled .btn {
 }
 
 .text-primary {
-    color: #04436d !important
+    color: var(--bs-secondary) !important
 }
 
 .text-secondary {
-    color: #04436d !important
+    color: var(--bs-secondary) !important
 }
 
 .text-success {
@@ -8340,11 +8343,11 @@ fieldset:disabled .btn {
 }
 
 .bg-primary {
-    background-color: #04436d !important
+    background-color: var(--bs-secondary) !important
 }
 
 .bg-secondary {
-    background-color: #04436d !important
+    background-color: var(--bs-secondary) !important
 }
 
 .bg-success {

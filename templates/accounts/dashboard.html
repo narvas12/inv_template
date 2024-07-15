@@ -2,78 +2,143 @@
 {% load static %}
 
 {% block content %}
-  <section style="text-align: center;" id="content-wrapper text-center p-5">
+<section style="text-align: center;" id="content-wrapper text-center p-5">
     <a class="btn btn-success" href="{% url 'deposit' %}">Deposit</a>
+    <button id="spend-fund-button" class="btn btn-danger" type="button">Spend Fund</button>
     <div class="row">
-      <div class="col-lg-3 col-md-6 col-sm-12 mb-3 card bg-light">
-        <div class="content-item">
-          <h4 class="text-secondary">Deposits</h4>
-          <h5 class="text-primary">${{ approved_deposits_total|floatformat:2 }}</h5>
-          <p>${{ approved_deposits_total|floatformat:2 }}</p>
-          <small><i class="bi bi-info-circle text-primary"></i>Total Deposits over time</small>
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-3 card bg-light">
+            <div class="content-item">
+                <h4 class="text-secondary">Deposits</h4>
+                <h5 class="text-primary">${{ approved_deposits_total|floatformat:2 }}</h5>
+                <p>${{ approved_deposits_total|floatformat:2 }}</p>
+                <small><i class="bi bi-info-circle text-primary"></i>Total Deposits over time</small>
+                {% if not has_deposits %}
+                    <p>No deposits yet.</p>
+                {% endif %}
+            </div>
         </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-12 mb-3 card bg-light">
-        <div class="content-item">
-          <h4 class="text-secondary">Pending Withdrawal</h4>
-          <h5 class="text-danger">${{ pending_withdrawals_total|floatformat:2 }}</h5>
-          <p>${{ pending_withdrawals_total|floatformat:2 }}</p>
-          <small><i class="bi bi-info-circle text-danger"></i>Total unapproved withdrawals</small>
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-3 card bg-light">
+            <div class="content-item">
+                <h4 class="text-secondary">Pending Withdrawal</h4>
+                <h5 class="text-danger">${{ pending_withdrawals_total|floatformat:2 }}</h5>
+                <p>${{ pending_withdrawals_total|floatformat:2 }}</p>
+                <small><i class="bi bi-info-circle text-danger"></i>Total unapproved withdrawals</small>
+                {% if not has_pending_withdrawals %}
+                    <p>No pending withdrawals.</p>
+                {% endif %}
+            </div>
         </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-12 mb-3 card bg-light">
-        <div class="content-item">
-          <h4 class="text-secondary">Earned Total</h4>
-          <h5 class="text-success">${{ total_earnings|floatformat:2 }}</h5>
-          <p>${{ total_earnings|floatformat:2 }}</p>
-          <small><i class="bi bi-arrow-repeat text-success text-bold"></i>Total amount earned</small>
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-3 card bg-light">
+            <div class="content-item">
+                <h4 class="text-secondary">Earned Total</h4>
+                <h5 class="text-success">${{ total_earnings|floatformat:2 }}</h5>
+                <p>${{ total_earnings|floatformat:2 }}</p>
+                <small><i class="bi bi-arrow-repeat text-success text-bold"></i>Total amount earned</small>
+                {% if not has_earnings %}
+                    <p>No earnings yet.</p>
+                {% endif %}
+            </div>
         </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-12 mb-5 card bg-light">
-        <div class="content-item">
-          <h4 class="text-secondary">Current balance</h4>
-          <h5 class="text-warning">${{ wallet_balance|floatformat:2 }}</h5>
-          <p>${{ wallet_balance|floatformat:2 }}</p>
-          <small> <i class="bi bi-briefcase-fill text-warning"></i> Total withdrawable Balance</small>
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-5 card bg-light">
+            <div class="content-item">
+                <h4 class="text-secondary">Current balance</h4>
+                <h5 class="text-warning">${{ wallet_balance|floatformat:2 }}</h5>
+                <p>${{ wallet_balance|floatformat:2 }}</p>
+                <small><i class="bi bi-briefcase-fill text-warning"></i>Total withdrawable Balance</small>
+                {% if not has_wallet %}
+                    <p>No wallet available.</p>
+                {% endif %}
+            </div>
         </div>
-      </div>
 
-      <div class="col-lg-3 col-md-6 col-sm-12 mb-5 card bg-light">
-        <div class="content-item">
-          <h4 class="text-secondary">Referral Earnings</h4>
-          <h5 class="text-warning">${{ referal_bonus|floatformat:2 }}</h5>
-          <p>${{ wallet_balance|floatformat:2 }}</p>
-          <small><a disabled style="background-color:cyan; color: darkred; border-radius: 5px; padding: 7px;" href="{% url 'referal' username=request.user.username %}">https://okxguard.com/{{user.username}}</a>  <br><br> <span class="text-primary" style="font-size: 12px;"><i class="bi bi-info-circle-fill"> </i>copy and share your affiliate link to keep earning 20% bonuse on successful referals</span></small>
-          <br>
-          <small>T & C Applied</small>
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-5 card bg-light">
+            <div class="content-item">
+                <h4 class="text-secondary">Active Investment</h4>
+                <h5 class="text-warning">${{ total_active_investments|floatformat:2 }}</h5>
+                <p>${{ total_active_investments|floatformat:2 }}</p>
+                <small><i class="bi bi-briefcase-fill text-warning"></i>Total Active Investment</small>
+                {% if not has_active_investments %}
+                    <p>No active investments found.</p>
+                {% endif %}
+            </div>
         </div>
-      </div>
 
-     
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-5 card bg-light">
+            <div class="content-item">
+                <h4 class="text-secondary">Referral Earnings</h4>
+                <h5 class="text-warning">${{ referal_bonus|floatformat:2 }}</h5>
+                <p>${{ referal_bonus|floatformat:2 }}</p>
+                <small><a disabled style="background-color:cyan; color: darkred; border-radius: 5px; padding: 7px;" href="{% url 'referal' username=request.user.username %}">https://polycronos.com/referal/{{username}}/</a><br><br><span class="text-primary" style="font-size: 12px;"><i class="bi bi-info-circle-fill"></i>copy and share your affiliate link to keep earning 20% bonus on successful referrals</span></small>
+                <br>
+                <small>T & C Applied</small>
+                {% if not has_referal %}
+                    <p>No referral bonus yet.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Dialog -->
+    <div class="modal fade" id="spendFundModal" tabindex="-1" role="dialog" aria-labelledby="spendFundModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="spendFundModalLabel">Spend Fund</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Do you want to make a new deposit or spend from your wallet balance?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="new-deposit-button">New Deposit</button>
+                    <button type="button" class="btn btn-primary" id="spend-from-wallet-button">Spend from Wallet</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- TradingView Widget BEGIN -->
-    <div class="tradingview-widget-container ">
-      <div class="tradingview-widget-container__widget"></div>
-      
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
         {
-          "width": "100%",
-          "height": "500",
-          "defaultColumn": "overview",
-          "screener_type": "crypto_mkt",
-          "displayCurrency": "USD",
-          "colorTheme": "dark",
-          "locale": "en"
+            "width": "100%",
+            "height": "500",
+            "defaultColumn": "overview",
+            "screener_type": "crypto_mkt",
+            "displayCurrency": "USD",
+            "colorTheme": "dark",
+            "locale": "en"
         }
-      </script>
+        </script>
     </div>
     <!-- TradingView Widget END -->
-  </section>
+</section>
 
-  <style>
-    .card{
-      width: 80%;
+<style>
+    .card {
+        width: 80%;
     }
-  </style>
+</style>
+<!-- Include Bootstrap JS for modal functionality -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#spend-fund-button').on('click', function(){
+            $('#spendFundModal').modal('show');
+        });
+
+        $('#new-deposit-button').on('click', function(){
+            window.location.href = "{% url 'deposit' %}";
+        });
+
+        $('#spend-from-wallet-button').on('click', function(){
+            window.location.href = "{% url 'spend_fund' %}";
+        });
+    });
+</script>
+
 {% endblock %}

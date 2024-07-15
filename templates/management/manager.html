@@ -1,0 +1,54 @@
+{% extends "admin_base.html" %}
+{% load static %}
+
+
+
+{% block content %}
+    <style>
+        .page-header {
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+        .url-list {
+            margin-bottom: 20px;
+        }
+        .url-item {
+            margin-bottom: 20px;
+        }
+    </style>
+
+
+<div class="container">
+    <div class="page-header text-center">
+        <h1 class="text-light">Poly Cronos Management Guide</h1>
+        <h3 class="lead text-light">Learn how to manage your withdrawals, deposits, and send bonuses and offers using our platform.</h3>
+    </div>
+
+    <div class="url-list">
+        <div class="url-item">
+            <h5><a href="https://polycronos.com/manage_withdrawals/" class="text-decoration-none">Manage Withdrawals</a></h5>
+            <p>Access this URL to manage all user withdrawals. Here, administrators can review, approve, or deny withdrawal requests.</p>
+        </div>
+
+        <div class="url-item">
+            <h5><a href="https://polycronos.com/manage_deposits/" class="text-decoration-none">Manage Deposits</a></h5>
+            <p>Access this URL to manage all user deposits. Here, administrators can review and approve deposit transactions to ensure funds are properly credited to user accounts.</p>
+        </div>
+
+        <div class="url-item">
+            <h5><a href="https://polycronos.com/send_bonus/" class="text-decoration-none">Send Bonus</a></h5>
+            <p>Access this URL to send bonuses to users. Administrators can select users and send bonuses as a reward or promotion.</p>
+        </div>
+
+        <div class="url-item">
+            <h5><a href="https://polycronos.com/send-monthly-offer/" class="text-decoration-none">Send Monthly Offer</a></h5>
+            <p>Access this URL to send monthly promotional offers to selected users. This helps in engaging users and promoting new deals or services.</p>
+        </div>
+
+        <div class="url-item">
+            <h5><a href="https://polycronos.com/send_new_month_message/" class="text-decoration-none">Send New Month Message</a></h5>
+            <p>Access this URL to send a new month greeting message to selected users. This can be used to foster a sense of community and keep users engaged with the platform.</p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
