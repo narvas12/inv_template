@@ -600,7 +600,7 @@
 .counter {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(rgba(46, 154, 25, 0.616), rgb(25, 154, 36)), url(../img/fact.jpeg);
+    background: linear-gradient(rgba(46, 154, 25, 0.616), rgb(25, 154, 36)), url(../img/fact.jpg);
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
@@ -941,3 +941,5 @@
   .text-dark{
     color:black;
   }
+
+  

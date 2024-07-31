@@ -150,7 +150,7 @@ def login_view(request):
         if form.is_valid():
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
-            user = authenticate(username=username, password=password)
+            user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
                 return redirect('login_success')  # Redirect to the home page after successful login
@@ -630,7 +630,6 @@ def send_new_month_message(request):
 
 
 
-
 @login_required
 def spend_fund(request):
     user_profile, created = UserProfile.objects.get_or_create(user=request.user)
@@ -639,11 +638,14 @@ def spend_fund(request):
     # Calculate total earnings
     earnings_total = Earnings.objects.filter(user_profile=user_profile).aggregate(Sum('earnings'))['earnings__sum'] or Decimal('0.00')
 
+    # Calculate capital
+    capital = wallet_balance - earnings_total
+
     if request.method == 'POST':
         form = SpendFundForm(request.POST)
         if form.is_valid():
             amount = form.cleaned_data['amount']
-            if earnings_total >= amount:
+            if capital >= amount:
                 # Deduct the amount from wallet balance
                 user_profile.wallet.balance -= amount
                 user_profile.wallet.save()
@@ -658,7 +660,7 @@ def spend_fund(request):
                 messages.success(request, f'You have successfully invested ${amount}.')
                 return redirect('dashboard')
             else:
-                form.add_error('amount', 'Insufficient earnings')
+                form.add_error('amount', 'Insufficient capital')
     else:
         form = SpendFundForm()
 
@@ -666,6 +668,7 @@ def spend_fund(request):
         'form': form,
         'wallet_balance': wallet_balance,
         'earnings_total': earnings_total,
+        'capital': capital,
     }
 
     return render(request, 'transactions/spend_fund.html', context)

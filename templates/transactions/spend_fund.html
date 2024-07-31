@@ -7,8 +7,15 @@
     <div class="card shadow-sm">
         <div class="card-body text-center p-5">
             <h2 class="card-title">Spend Fund</h2>
-            <p class="card-text {% if wallet_balance == 0 %}text-danger{% else %}text-primary{% endif %}">Wallet Balance: ${{ wallet_balance|floatformat:2 }}</p>
-            <p class="card-text {% if earnings_total == 0 %}text-danger{% else %}text-primary{% endif %}">Total Earnings: ${{ earnings_total|floatformat:2 }}</p>
+            <p class="card-text {% if wallet_balance == 0 %}text-danger{% else %}text-primary{% endif %}">
+                Wallet Balance: ${{ wallet_balance|floatformat:2 }}
+            </p>
+            <p class="card-text {% if earnings_total == 0 %}text-danger{% else %}text-primary{% endif %}">
+                Total Earnings: ${{ earnings_total|floatformat:2 }}
+            </p>
+            <p class="card-text {% if capital == 0 %}text-danger{% else %}text-primary{% endif %}">
+                Available Capital: ${{ capital|floatformat:2 }}
+            </p>
 
             <form method="post" class="mt-4">
                 {% csrf_token %}
@@ -24,9 +31,8 @@
 </section>
 
 <style>
-    *{
-        list-style-type:none;
-        
+    * {
+        list-style-type: none;
     }
     .container {
         max-width: 600px;
@@ -59,8 +65,7 @@
         border-radius: 0.25rem;
         transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     }
-
-    input{
+    input {
         outline: none;
         border: none;
         border-bottom: 1px solid black;
@@ -96,8 +101,8 @@
     .text-danger {
         color: red !important;
     }
-    .text-success {
-        color: green !important;
+    .text-primary {
+        color: #007bff !important;
     }
 </style>
 {% endblock %}

@@ -3,7 +3,8 @@ from django.utils import timezone
 from decimal import Decimal
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
-from django.dispatch import receiver
+from datetime import timedelta
+
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -46,6 +47,12 @@ class Investment(models.Model):
 
     def __str__(self):
         return f"{self.user_profile.user.username} - {self.amount}"
+
+    def save(self, *args, **kwargs):
+        if not self.pk:  # Check if the object is being created (not updated)
+            self.start_date = timezone.now()
+            self.end_date = self.start_date + timedelta(days=5)
+        super().save(*args, **kwargs)
 
     def check_active(self):
         if self.end_date and timezone.now() > self.end_date:

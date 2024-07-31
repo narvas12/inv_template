@@ -64,11 +64,20 @@ def process_wallet_earnings(wallet_id):
         log_earnings_to_file(error_message)
         print(error_message)
 
+def mark_investments_inactive():
+    """Mark investments as inactive if their end date has passed."""
+    now = timezone.now()
+    expired_investments = Investment.objects.filter(end_date__lte=now, is_active=True)
+    for investment in expired_investments:
+        investment.is_active = False
+        investment.save()
+        log_earnings_to_file(f"Investment {investment.id} marked as inactive for user {investment.user_profile.user.username}")
+
 def start():
     scheduler = BackgroundScheduler()
     jobs = scheduler.get_jobs()
 
-    scheduled_wallet_ids = set(job.args[0] for job in jobs)
+    scheduled_wallet_ids = set(job.args[0] for job in jobs if job.args)
 
     wallets = Wallet.objects.all()
     
@@ -105,5 +114,12 @@ def start():
                     hours=24,
                     args=[wallet.pk]
                 )
+
+    # Schedule job to mark investments as inactive after their end date
+    scheduler.add_job(
+        mark_investments_inactive,
+        'interval',
+        minutes=1
+    )
 
     scheduler.start()

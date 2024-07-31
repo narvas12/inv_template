@@ -68,7 +68,7 @@
                 <h4 class="text-secondary">Referral Earnings</h4>
                 <h5 class="text-warning">${{ referal_bonus|floatformat:2 }}</h5>
                 <p>${{ referal_bonus|floatformat:2 }}</p>
-                <small><a disabled style="background-color:cyan; color: darkred; border-radius: 5px; padding: 7px;" href="{% url 'referal' username=request.user.username %}">https://polycronos.com/referal/{{username}}/</a><br><br><span class="text-primary" style="font-size: 12px;"><i class="bi bi-info-circle-fill"></i>copy and share your affiliate link to keep earning 20% bonus on successful referrals</span></small>
+                <small><a disabled style="background-color:cyan; color: darkred; border-radius: 5px; padding: 7px;" href="{% url 'referal' username=request.user.username %}">https://fantombeam.com/referal/{{username}}/</a><br><br><span class="text-primary" style="font-size: 12px;"><i class="bi bi-info-circle-fill"></i>copy and share your affiliate link to keep earning 20% bonus on successful referrals</span></small>
                 <br>
                 <small>T & C Applied</small>
                 {% if not has_referal %}

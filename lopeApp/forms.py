@@ -26,9 +26,11 @@ class UserRegistrationForm(UserCreationForm):
             user.save()
         return user
 
-class UserLoginForm(BootstrapFormMixin, forms.Form):
-    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Username'}))
+
+class UserLoginForm(forms.Form):
+    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Username or Email'}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
+
     
 
 
